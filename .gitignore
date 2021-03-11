@@ -1,0 +1,10 @@
+/data/in/*.csv
+/data/out/*.json
+webflow-export.zip
+
+node_modules
+
+pythonenv
+
+.cache
+dist
