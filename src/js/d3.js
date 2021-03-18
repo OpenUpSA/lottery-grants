@@ -1,4 +1,3 @@
-import { descending } from 'd3-array';
 import { json } from 'd3-fetch';
 import { hierarchy, treemap } from 'd3-hierarchy';
 import {
@@ -7,7 +6,6 @@ import {
 
 export const d3 = {
   data,
-  descending,
   enter,
   json,
   hierarchy,
