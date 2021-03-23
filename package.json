@@ -1,7 +1,7 @@
 {
-  "name": "lottery-tool",
+  "name": "lottery-grants",
   "version": "0.0.1",
-  "description": "",
+  "description": "Lottery grants explorer tool",
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/index.html",
@@ -33,7 +33,7 @@
     ]
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.12.13",
     "babel-plugin-transform-regenerator": "^6.26.0",

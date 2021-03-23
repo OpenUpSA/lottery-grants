@@ -29,10 +29,9 @@ Promise.all([
     Unspecified: legend.find('.legend-swatch--colour-5').css('background-color'),
   };
 
-  const fromYear = 2010;
   const years = data.children
     .reduce((obj, val) => ({
-      ...obj, [val.year]: val.year >= fromYear,
+      ...obj, [val.year]: true,
     }), {});
 
   const provinces = provinceSummary
@@ -51,9 +50,9 @@ Promise.all([
     Province: provinces,
   };
 
-  const overlay = new Overlay('.beneficiary-info', lookup);
+  const overlay = new Overlay($('.beneficiary-info'), lookup);
 
-  const treemaps = new Treemaps('.data-vis', data, filters, colors, overlay);
+  const treemaps = new Treemaps($('.data-vis:not(.vis-loading)'), data, lookup, filters, colors, overlay);
 
   $('.clear-filters').on('click', () => treemaps.clearFilters());
 
@@ -74,6 +73,4 @@ Promise.all([
   const beneficiaryFilter = new FilterSearchSelect($beneficiaryFilter, 'Name', true, filter.bind(this));
   const $beneficiarySearch = $('#wf-form-Beneficiaries-search');
   new Search($beneficiarySearch, nameSummary, ['Name'], 'Name', beneficiaryFilter.search.bind(beneficiaryFilter));
-}).catch((err) => {
-    console.log(err);
 });

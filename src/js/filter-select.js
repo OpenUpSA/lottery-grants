@@ -1,65 +1,65 @@
 import { FilterSelectOption } from './filter-select-option';
 
 export class FilterSelect {
-  constructor($container, name, filter, ascending, callback) {
-    this.$container = $container;
-    this.name = name;
-    this.filter = filter;
-    this.ascending = ascending;
-    this.callback = callback;
-    this.selected = [];
-    this.unselected = Object.keys(filter);
+  constructor($parent, name, filter, ascending, callback) {
+    this._$parent = $parent;
+    this._name = name;
+    this._filter = filter;
+    this._ascending = ascending;
+    this._callback = callback;
+    this._selected = [];
+    this._unselected = Object.keys(filter);
     this.render();
   }
 
   render() {
-    this.$container.empty();
-    const factor = this.ascending ? 1 : -1;
-    this.selectedChildren = this.selected
+    this._$parent.empty();
+    const factor = this._ascending ? 1 : -1;
+    this._selectedChildren = this._selected
       .map((value) => new FilterSelectOption(
-        this.$container,
+        this._$parent,
         value,
         true,
         this.applyFilter.bind(this),
       ));
-    this.unselectedChildren = this.unselected
+    this._unselectedChildren = this._unselected
       .sort((a, b) => {
         if (a > b) return factor;
         if (a < b) return factor * -1;
         return 0;
       })
       .map((value) => new FilterSelectOption(
-        this.$container,
+        this._$parent,
         value,
-        this.selected.length ? this.filter[value] : null,
+        this._selected.length ? this._filter[value] : null,
         this.applyFilter.bind(this),
       ));
   }
 
   search(keys) {
-    this.unselected = keys.slice(0, 30);
+    this._unselected = keys.slice(0, 30);
     // subtract already selected ones?
     this.render();
   }
 
   applyFilter(value, include) {
     let includeAll = null;
-    if (!this.selected.length && include) { // First filter select
+    if (!this._selected.length && include) { // First filter select
       includeAll = false;
-    } else if (this.selected.length === 1 && !include) { // Last filter deselect
+    } else if (this._selected.length === 1 && !include) { // Last filter deselect
       includeAll = true;
     }
     if (includeAll !== null) {
-      Object.keys(this.filter).forEach((key) => {
-        this.filter[key] = includeAll;
+      Object.keys(this._filter).forEach((key) => {
+        this._filter[key] = includeAll;
       });
     }
     if (!includeAll) {
-      this.filter[value] = include;
+      this._filter[value] = include;
     }
-    this.selected = includeAll ? [] : Object.keys(this.filter).filter((key) => this.filter[key]);
-    this.unselected = includeAll ? Object.keys(this.filter) : Object.keys(this.filter).filter((key) => !this.filter[key]);
-    this.render(this.unselected);
-    this.callback(this.name, this.filter);
+    this._selected = includeAll ? [] : Object.keys(this._filter).filter((key) => this._filter[key]);
+    this._unselected = includeAll ? Object.keys(this._filter) : Object.keys(this._filter).filter((key) => !this._filter[key]);
+    this.render(this._unselected);
+    this._callback(this._name, this._filter);
   }
 }

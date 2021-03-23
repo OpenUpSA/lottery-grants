@@ -2,10 +2,10 @@ import SearchApi, { INDEX_MODES } from 'js-worker-search';
 
 export class SearchService {
   constructor(data, fields, keyField) {
-    this.api = new SearchApi({
+    this._api = new SearchApi({
       indexMode: INDEX_MODES.PREFIXES,
     });
-    this.fields = fields;
+    this._fields = fields;
     this.index(data, keyField);
   }
 
@@ -15,14 +15,14 @@ export class SearchService {
       key,
     }));
     arr.forEach((record) => {
-      const fields = this.fields || Object.keys(record);
+      const fields = this._fields || Object.keys(record);
       const text = fields.map((field) => record[field]).join(' ');
-      this.api.indexDocument(record[keyField], text);
+      this._api.indexDocument(record[keyField], text);
     });
   }
 
   search(input, callback) {
-    const promise = this.api.search(input);
+    const promise = this._api.search(input);
     promise.then((results) => {
       callback(results.slice(0, 30));
     });

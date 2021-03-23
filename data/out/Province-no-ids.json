@@ -1,0 +1,42 @@
+[
+  {
+    "Province": "Gauteng",
+    "Amount": 4971806531.599999
+  },
+  {
+    "Province": "Western Cape",
+    "Amount": 2376482630.922001
+  },
+  {
+    "Province": "Kwazulu-Natal",
+    "Amount": 1680889105.11
+  },
+  {
+    "Province": "Eastern Cape",
+    "Amount": 1259411899.0900006
+  },
+  {
+    "Province": "Limpopo",
+    "Amount": 1125652788.4000008
+  },
+  {
+    "Province": "North West",
+    "Amount": 878394297.13
+  },
+  {
+    "Province": "Free State",
+    "Amount": 798960622.1699997
+  },
+  {
+    "Province": "National",
+    "Amount": 782938139.0
+  },
+  {
+    "Province": "Mpumalanga",
+    "Amount": 671899249.88
+  },
+  {
+    "Province": "Northern Cape",
+    "Amount": 519638814.89
+  }
+]

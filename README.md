@@ -6,22 +6,24 @@ This repo provides data processing from source CSV files, and a website to explo
 
 ### MVP
 
-- [ ] Get latest data
-- [ ] Include allocation date once available in data set
-- [ ] CSV download...?
-- [ ] Benficiary CIPC info...?
-- [ ] Update with latest webflow export: include treemap loading div
-- [ ] Update with latest webflow export: set count and amount details to new targets
-- [ ] Update with latest webflow export: change beneficiary search to show selected as pills instead of checkboxes
-- [ ] Update with latest webflow export: add table to selected data overlay
-- [ ] Avoid CSS `//` comments from webflow or post-process in webflow import
-- [ ] Correct handling of province filter (beneficiary can have grants in multiple provinces, so treemap data should terminate in grant IDs, not amount, and amount calculated at runtime) (check performance implication)
-- [ ] Change processing of input CSV data so that Netlify deployment can generate data?
 - [ ] Implement Netlify deployment
+- [ ] Add link to https://www.nlcsa.org.za/annual-reports. @Matt
+- [x] Get latest data
+- [x] Do not include date for now, as we only have date for 2019-20. (old task: Include allocation date once available in data set)
+- [x] CSV download - download entire selection based on filters (remove from clicked selection)
+- [x] Benficiary CIPC info...? (leave out for now)
+- [ ] Update with latest webflow export: include treemap loading div. @Matt loading not showing at top after content added
+- [x] Update with latest webflow export: set count and amount details to new targets
+- [x] Update with latest webflow export: change beneficiary search to show selected as pills instead of checkboxes
+- [x] Update with latest webflow export: add table to selected data overlay
+- [ ] Remove 'date' from selected data table? @Matt
+- [ ] Avoid CSS `//` comments from webflow or post-process in webflow import. @Matt ?
+- [x] Correct handling of province filter
 
 ### Later
 
 - [ ] Show all time top 10 beneficiaries by amount on website
+- [ ] Change processing of input CSV data so that Netlify deployment can generate data?
 
 ## Development
 
