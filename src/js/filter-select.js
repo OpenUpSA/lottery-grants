@@ -36,6 +36,12 @@ export class FilterSelect {
       ));
   }
 
+  reset() {
+    this._selected = [];
+    this._unselected = Object.keys(this._filter);
+    this.render();
+  }
+
   search(keys) {
     this._unselected = keys.slice(0, 30);
     // subtract already selected ones?

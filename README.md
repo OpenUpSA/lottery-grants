@@ -4,20 +4,25 @@ This repo provides data processing from source CSV files, and a website to explo
 
 ## TODO
 
+Document https://www.dropbox.com/sh/v51lkxz82szx2dq/AADeZ4G7zQKiNBpPoVFk2iPra?dl=0
+
 ### MVP
 
-- [ ] Implement Netlify deployment
-- [ ] Add link to https://www.nlcsa.org.za/annual-reports. @Matt
+- [ ] Spaces not working in search. @Matt webflow spacebar event handling?
+- [x] Remove all filters - implemented? Bug fixed.
+- [x] Year should be e.g. 2019/2020 instead of 2019.
+- [x] Add link to https://www.nlcsa.org.za/annual-reports. @Matt
+- [ ] Update with latest webflow export: include treemap loading div. @Matt loading not showing at top after content added
+- [x] Remove 'date' from selected data table? @Matt
+- [ ] Avoid CSS `//` comments from webflow or post-process in webflow import. @Matt ?
+- [x] Implement Netlify deployment
 - [x] Get latest data
 - [x] Do not include date for now, as we only have date for 2019-20. (old task: Include allocation date once available in data set)
 - [x] CSV download - download entire selection based on filters (remove from clicked selection)
 - [x] Benficiary CIPC info...? (leave out for now)
-- [ ] Update with latest webflow export: include treemap loading div. @Matt loading not showing at top after content added
 - [x] Update with latest webflow export: set count and amount details to new targets
 - [x] Update with latest webflow export: change beneficiary search to show selected as pills instead of checkboxes
 - [x] Update with latest webflow export: add table to selected data overlay
-- [ ] Remove 'date' from selected data table? @Matt
-- [ ] Avoid CSS `//` comments from webflow or post-process in webflow import. @Matt ?
 - [x] Correct handling of province filter
 
 ### Later
@@ -56,14 +61,14 @@ npm run webflow-import
 
 ## Deployment
 
-For now, generate data from CSV files, then run build, then upload `dist` directory contents to a web server:
+Commits to `main` are deployed to [lottery-grants.netlify.app](https://lottery-grants.netlify.app) by [Netlify](https://app.netlify.com/sites/lottery-grants).
+
+Building of changes from `data/in` is including in the Netlify build, so this needs to be done manually and committed:
 
 ```bash
 cd data
 . activate.sh
 python3 transform.py
-cd ..
-npm run build
 ```
 
 This process should of course be improved once the data processing is finalised.

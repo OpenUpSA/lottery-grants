@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  --><!--  Last Published: Tue Mar 16 2021 06:03:54 GMT+0000 (Coordinated Universal Time)  --><html data-wf-page="5fc6268c09814dcd492b20ee" data-wf-site="5fc6268c09814d78a22b20ed"><head>
+<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  --><!--  Last Published: Mon Mar 29 2021 12:51:48 GMT+0000 (Coordinated Universal Time)  --><html data-wf-page="5fc6268c09814dcd492b20ee" data-wf-site="5fc6268c09814d78a22b20ed"><head>
   <meta charset="utf-8">
   <title>National Lottery Explorer</title>
   <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -59,12 +59,10 @@
             <div class="beneficiary-data">
               <div class="beneficiary-data__row beneficiary-data__row--header">
                 <div class="beneficiary-data__row-allocation">Amount</div>
-                <div class="beneficiary-data__row-date">Date</div>
                 <div class="beneficiary-data__row-code">Project #</div>
               </div>
               <div class="beneficiary-data__row">
                 <div class="beneficiary-data__row-allocation">Loading...</div>
-                <div class="beneficiary-data__row-date">Loading...</div>
                 <div class="beneficiary-data__row-code">Loading...</div>
               </div>
             </div>
@@ -86,6 +84,9 @@
       <div class="layout-grid layout-grid--3-4-1-4">
         <div class="vis-block basic-grid">
           <h2 class="heading heading--underline">Awarded Grants</h2>
+          <a href="https://www.nlcsa.org.za/annual-reports/" target="_blank" class="button annual-reports w-inline-block"><img src="images/menu_book_black_24dp.svg" loading="lazy" alt="" class="annual-reports___icon">
+            <div>Explore the NLC's annual reports </div>
+          </a>
           <div class="current-info__selected">
             <div class="block block--margin">
               <div>Showing: <span class="current-info__showing">Loading...</span></div>
@@ -93,6 +94,9 @@
             <div class="block block--margin">
               <div>Total value: <span class="current-info__total-value">Calculating...</span></div>
             </div>
+            <a href="#" class="button download-selected w-inline-block"><img src="images/cloud_download-24px-2.svg" loading="lazy" alt="" class="button-icon">
+              <div>Download data for selected grants (.csv)</div>
+            </a>
           </div>
           <div class="legend__wrapper">
             <div class="legend-block">
@@ -118,11 +122,6 @@
           </div>
           <div data-w-id="02cc27b6-f872-885e-0d10-db29a0649f81" class="data-vis">
             <div class="vis-loading"><img src="images/loading.gif" loading="lazy" alt="" class="loading-gif"></div>
-          </div>
-          <div class="current-info__options">
-            <a href="#" class="button download-selected w-inline-block"><img src="images/cloud_download-24px-2.svg" loading="lazy" alt="" class="button-icon">
-              <div>Download (.csv)</div>
-            </a>
           </div>
         </div>
         <div class="filter-panel">
@@ -172,16 +171,6 @@
                   <div class="filter-current">
                     <div class="filter-current__label truncate">Loading...</div><img src="images/cancel-white-24px.svg" loading="lazy" alt="" class="filter-current__remove">
                   </div>
-                </div>
-                <div class="w-embed">
-                  <style>
-.truncate {
-	width: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	}
-  </style>
                 </div>
               </div>
               <div id="province-expand" class="expand-block province">

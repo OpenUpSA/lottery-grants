@@ -115,7 +115,9 @@ def process_lookup():
     id = 0
     for in_base_path in in_base_paths:
         match = re.match(r".*?([1-2][0|9][0-9][0-9]).*", str(in_base_path))
-        year = match.group(1)
+        yearfrom = match.group(1)
+        yearto = int(yearfrom) + 1
+        year = f'{yearfrom}-{yearto}'
         print(f'\nProcessing "{str(in_base_path)}" as year {year}')
         with in_base_path.open() as file:
             reader = csv.DictReader(file)

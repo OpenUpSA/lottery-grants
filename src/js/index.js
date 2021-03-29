@@ -54,23 +54,29 @@ Promise.all([
 
   const treemaps = new Treemaps($('.data-vis:not(.vis-loading)'), data, lookup, filters, colors, overlay);
 
-  $('.clear-filters').on('click', () => treemaps.clearFilters());
-
   const filter = (name, values) => {
     treemaps.update(name, values);
   };
 
   const $yearFilter = $('#wf-form-Year-list');
-  new FilterSelect($yearFilter, 'year', years, false, filter.bind(this));
+  const yearFilter = new FilterSelect($yearFilter, 'year', years, false, filter.bind(this));
 
   const $sectorFilter = $('#wf-form-Grant-categories-list');
-  new FilterSelect($sectorFilter, 'Sector', sectors, true, filter.bind(this));
+  const sectorFilter = new FilterSelect($sectorFilter, 'Sector', sectors, true, filter.bind(this));
 
   const $provinceFilter = $('#wf-form-Province-list');
-  new FilterSelect($provinceFilter, 'Province', provinces, true, filter.bind(this));
+  const provinceFilter = new FilterSelect($provinceFilter, 'Province', provinces, true, filter.bind(this));
 
   const $beneficiaryFilter = $('#wf-form-Beneficiaries-list');
   const beneficiaryFilter = new FilterSearchSelect($beneficiaryFilter, 'Name', true, filter.bind(this));
   const $beneficiarySearch = $('#wf-form-Beneficiaries-search');
   new Search($beneficiarySearch, nameSummary, ['Name'], 'Name', beneficiaryFilter.search.bind(beneficiaryFilter));
+
+  $('.clear-filters').on('click', () => {
+    treemaps.clearFilters();
+    yearFilter.reset();
+    sectorFilter.reset();
+    provinceFilter.reset();
+    beneficiaryFilter.reset();
+  });
 });

@@ -24,16 +24,16 @@
     "Name": "NICRO",
     "Amount": 100623595.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
     "Name": "Athletics South Africa",
     "Amount": 97583227.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -54,8 +54,8 @@
     "Name": "",
     "Amount": 74259302.0,
     "Province": [
-      "Mpumalanga",
       "Gauteng",
+      "Mpumalanga",
       "Free State"
     ]
   },
@@ -77,24 +77,24 @@
     "Name": "Sports Trust",
     "Amount": 71128698.0,
     "Province": [
-      "Kwazulu-Natal",
-      "Gauteng"
+      "Gauteng",
+      "Kwazulu-Natal"
     ]
   },
   {
     "Name": "Cancer Association of South Africa",
     "Amount": 69683734.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
     "Name": "Swimming South Africa",
     "Amount": 67427927.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -123,8 +123,8 @@
     "Name": "SA Football Association",
     "Amount": 53554983.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -142,8 +142,8 @@
     "Name": "The Sports Trust",
     "Amount": 50022930.5,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -164,8 +164,8 @@
     "Name": "South African Table Tennis Board",
     "Amount": 41424370.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -176,8 +176,8 @@
     "Name": "National Film & Video Foundation",
     "Amount": 41000000.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -209,16 +209,16 @@
     "Name": "Southern African Youth Movement",
     "Amount": 35000000.0,
     "Province": [
-      "Mpumalanga",
-      "Gauteng"
+      "Gauteng",
+      "Mpumalanga"
     ]
   },
   {
     "Name": "South African Tennis Association",
     "Amount": 34783778.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -313,8 +313,8 @@
     "Name": "South African Cycling Federation",
     "Amount": 27916164.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
@@ -328,17 +328,17 @@
     "Name": "South African Hockey Association",
     "Amount": 27570500.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
     "Name": "Volleyball South Africa",
     "Amount": 27274237.5,
     "Province": [
+      "Gauteng",
       "National",
-      "Northern Cape",
-      "Gauteng"
+      "Northern Cape"
     ]
   },
   {
@@ -370,9 +370,9 @@
     "Name": "Rowing South Africa",
     "Amount": 26034112.0,
     "Province": [
+      "Gauteng",
       "National",
-      "Eastern Cape",
-      "Gauteng"
+      "Eastern Cape"
     ]
   },
   {
@@ -428,8 +428,8 @@
     "Name": "Triathlon South Africa",
     "Amount": 23492613.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -475,8 +475,8 @@
     "Name": "South African Gymnastics Federation",
     "Amount": 22303048.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
@@ -498,9 +498,9 @@
     "Name": "South African National Parks",
     "Amount": 22075000.0,
     "Province": [
+      "Gauteng",
       "National",
-      "Northern Cape",
-      "Gauteng"
+      "Northern Cape"
     ]
   },
   {
@@ -611,8 +611,8 @@
     "Name": "Age In Action",
     "Amount": 19236708.65,
     "Province": [
-      "Western Cape",
-      "Limpopo"
+      "Limpopo",
+      "Western Cape"
     ]
   },
   {
@@ -753,8 +753,8 @@
     "Name": "South African Football Association",
     "Amount": 16602550.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -818,8 +818,8 @@
     "Name": "Operation Hunger",
     "Amount": 15760744.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -914,8 +914,8 @@
     "Name": "Squash South Africa",
     "Amount": 14531300.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -1039,8 +1039,8 @@
     "Name": "Judo South Africa",
     "Amount": 13362601.0,
     "Province": [
-      "National",
       "Gauteng",
+      "National",
       "Free State"
     ]
   },
@@ -1129,8 +1129,8 @@
     "Name": "South African History Online",
     "Amount": 12772718.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -1374,8 +1374,8 @@
     "Name": "FAMSA National Office",
     "Amount": 11289722.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -1428,9 +1428,9 @@
     "Name": "Netball South Africa",
     "Amount": 10900000.0,
     "Province": [
+      "Gauteng",
       "National",
-      "Northern Cape",
-      "Gauteng"
+      "Northern Cape"
     ]
   },
   {
@@ -1448,8 +1448,8 @@
     "Name": "Black Sash Trust",
     "Amount": 10819680.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
@@ -1815,8 +1815,8 @@
     "Name": "Badminton South Africa",
     "Amount": 9691790.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -1844,8 +1844,8 @@
     "Name": "Friends For Life",
     "Amount": 9569256.0,
     "Province": [
-      "Kwazulu-Natal",
-      "Gauteng"
+      "Gauteng",
+      "Kwazulu-Natal"
     ]
   },
   {
@@ -1891,8 +1891,8 @@
     "Name": "Labour Research Service",
     "Amount": 9384976.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
@@ -1953,8 +1953,8 @@
     "Amount": 9148575.0,
     "Province": [
       "Western Cape",
-      "Eastern Cape",
-      "Free State"
+      "Free State",
+      "Eastern Cape"
     ]
   },
   {
@@ -1968,8 +1968,8 @@
     "Name": "Epilepsy SA",
     "Amount": 9103903.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -2011,8 +2011,8 @@
     "Name": "Rowing SA",
     "Amount": 9030000.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -2150,10 +2150,10 @@
     "Name": "MINTEK",
     "Amount": 8489999.0,
     "Province": [
+      "Limpopo",
       "Kwazulu-Natal",
       "Gauteng",
-      "Eastern Cape",
-      "Limpopo"
+      "Eastern Cape"
     ]
   },
   {
@@ -2167,16 +2167,16 @@
     "Name": "Education Alive",
     "Amount": 8459271.4,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
     "Name": "Centre for Early Childhood Development",
     "Amount": 8438920.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
@@ -2227,8 +2227,8 @@
     "Name": "National Museum Bloemfontein",
     "Amount": 8352836.0,
     "Province": [
-      "Western Cape",
-      "Free State"
+      "Free State",
+      "Western Cape"
     ]
   },
   {
@@ -2325,8 +2325,8 @@
     "Name": "South African Heritage Resources Agency",
     "Amount": 8070817.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -2654,8 +2654,8 @@
     "Name": "SA National Archery Association",
     "Amount": 7466920.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -2801,9 +2801,9 @@
     "Name": "Epilepsy South Africa",
     "Amount": 7095381.0,
     "Province": [
-      "Western Cape",
       "National",
-      "Free State"
+      "Free State",
+      "Western Cape"
     ]
   },
   {
@@ -2828,8 +2828,8 @@
     "Name": "Surfing South Africa",
     "Amount": 7079007.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
@@ -2878,8 +2878,8 @@
     "Name": "Ballet Theatre Afrikan",
     "Amount": 7010179.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -2921,8 +2921,8 @@
     "Name": "South African Rugby Union",
     "Amount": 6984500.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
@@ -2971,8 +2971,8 @@
     "Name": "La Rosa Spanish Dance Theatre",
     "Amount": 6891340.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -3431,9 +3431,9 @@
     "Amount": 6169624.0,
     "Province": [
       "Kwazulu-Natal",
-      "Gauteng",
+      "Western Cape",
       "Eastern Cape",
-      "Western Cape"
+      "Gauteng"
     ]
   },
   {
@@ -3444,8 +3444,8 @@
     "Name": "SA Federation for Mental Health",
     "Amount": 6153382.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -3526,8 +3526,8 @@
     "Name": "South African Korfball Federation",
     "Amount": 6039812.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -3686,8 +3686,8 @@
     "Name": "The Cape Town Male Voice Choir",
     "Amount": 5922354.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -3811,8 +3811,8 @@
     "Name": "AFM Executive Welfare Council",
     "Amount": 5783336.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -3837,8 +3837,8 @@
     "Name": "Autism South Africa",
     "Amount": 5740700.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -3925,8 +3925,8 @@
     "Name": "National Eisteddfod Academy",
     "Amount": 5623925.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -3968,16 +3968,16 @@
     "Name": "South African Handball Federation",
     "Amount": 5562580.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
     "Name": "Educo Trust of Africa",
     "Amount": 5555810.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
@@ -4088,8 +4088,8 @@
     "Name": "SANCA Johannesburg",
     "Amount": 5453160.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -4131,8 +4131,8 @@
     "Name": "South African National Tuberculosis Association",
     "Amount": 5407960.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -4409,8 +4409,8 @@
     "Name": "Lifeline Southern Africa",
     "Amount": 5146208.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -4666,8 +4666,8 @@
     "Name": "The Forgotten Angle Theatre Collaborative",
     "Amount": 4982061.0,
     "Province": [
-      "Mpumalanga",
-      "Gauteng"
+      "Gauteng",
+      "Mpumalanga"
     ]
   },
   {
@@ -4886,8 +4886,8 @@
     "Name": "South African Equestrian Council",
     "Amount": 4827868.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -5028,10 +5028,10 @@
     "Name": "Opera Africa in Partnership with African Renaissance",
     "Amount": 4749600.0,
     "Province": [
-      "Kwazulu-Natal",
       "Gauteng",
-      "Western Cape",
-      "Free State"
+      "Free State",
+      "Kwazulu-Natal",
+      "Western Cape"
     ]
   },
   {
@@ -5246,8 +5246,8 @@
     "Name": "National Botanical Institute",
     "Amount": 4554020.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -5279,8 +5279,8 @@
     "Name": "Roller Sport South Africa",
     "Amount": 4542121.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -5473,8 +5473,8 @@
     "Name": "Chess South Africa",
     "Amount": 4467500.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
@@ -5666,8 +5666,8 @@
     "Name": "South African Deaf Sports Federation",
     "Amount": 4357965.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -5702,8 +5702,8 @@
     "Name": "Soyikwa Institute of African Theatre",
     "Amount": 4345156.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -5721,8 +5721,8 @@
     "Name": "Hamlet Foundation",
     "Amount": 4330149.0,
     "Province": [
-      "Mpumalanga",
-      "Gauteng"
+      "Gauteng",
+      "Mpumalanga"
     ]
   },
   {
@@ -5838,16 +5838,16 @@
     "Name": "Southern African Arts Exchange",
     "Amount": 4270000.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
     "Name": "South African National Council For The Blind",
     "Amount": 4250500.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -6141,8 +6141,8 @@
     "Name": "Rachel Swart Fund",
     "Amount": 4099750.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
@@ -6212,8 +6212,8 @@
     "Name": "The Human Rights Media Trust",
     "Amount": 4075440.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -6301,8 +6301,8 @@
     "Name": "Blue Bulls Rugby Union",
     "Amount": 4031082.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -6573,8 +6573,8 @@
     "Name": "Lifeline Durban",
     "Amount": 3945713.0,
     "Province": [
-      "Kwazulu-Natal",
-      "Limpopo"
+      "Limpopo",
+      "Kwazulu-Natal"
     ]
   },
   {
@@ -6699,8 +6699,8 @@
     "Name": "KHWELA THEATRE PRODUCTION",
     "Amount": 3872099.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -6802,8 +6802,8 @@
     "Name": "Rural Development Support Programme",
     "Amount": 3817888.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
@@ -7007,8 +7007,8 @@
     "Name": "Assitej South Africa",
     "Amount": 3748440.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -7037,8 +7037,8 @@
     "Amount": 3735000.0,
     "Province": [
       "Kwazulu-Natal",
-      "Eastern Cape",
-      "Western Cape"
+      "Western Cape",
+      "Eastern Cape"
     ]
   },
   {
@@ -8030,11 +8030,11 @@
     "Name": "Abangani Theatre",
     "Amount": 3376691.0,
     "Province": [
-      "Gauteng",
-      "North West",
       "Limpopo",
+      "Gauteng",
       "Eastern Cape",
-      "Free State"
+      "Free State",
+      "North West"
     ]
   },
   {
@@ -10027,9 +10027,9 @@
     "Name": "Utlwanang Theatre",
     "Amount": 2816510.0,
     "Province": [
-      "North West",
       "Gauteng",
-      "Northern Cape"
+      "Northern Cape",
+      "North West"
     ]
   },
   {
@@ -10121,8 +10121,8 @@
     "Name": "South African Weightlifting Federation",
     "Amount": 2796232.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
@@ -10236,8 +10236,8 @@
     "Name": "Down Syndrome SA",
     "Amount": 2759476.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -11428,9 +11428,9 @@
     "Name": "Save the Children Fund",
     "Amount": 2469500.0,
     "Province": [
-      "Kwazulu-Natal",
       "Gauteng",
-      "Western Cape"
+      "Western Cape",
+      "Kwazulu-Natal"
     ]
   },
   {
@@ -12102,8 +12102,8 @@
     "Name": "Help2read",
     "Amount": 2327203.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -12131,8 +12131,8 @@
     "Name": "South African Council Of Churches",
     "Amount": 2323660.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -12464,8 +12464,8 @@
     "Name": "Archery South Africa",
     "Amount": 2258466.4,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -12560,8 +12560,8 @@
     "Name": "The Magnet Theatre Educational Trust",
     "Amount": 2243302.0,
     "Province": [
-      "Western Cape",
       "Gauteng",
+      "Western Cape",
       "Northern Cape"
     ]
   },
@@ -12912,8 +12912,8 @@
     "Name": "National Council of SPCA's",
     "Amount": 2191103.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -13036,8 +13036,8 @@
     "Name": "CHILD WELFARE SOUTH AFRICA",
     "Amount": 2168486.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -14502,8 +14502,8 @@
     "Name": "ASSITEJ SOUTH AFRICA",
     "Amount": 1982040.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -14925,8 +14925,8 @@
     "Name": "Tswelopele Performing Artists",
     "Amount": 1915567.0,
     "Province": [
-      "Mpumalanga",
-      "Gauteng"
+      "Gauteng",
+      "Mpumalanga"
     ]
   },
   {
@@ -15377,8 +15377,8 @@
     "Name": "SANDF",
     "Amount": 1875050.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -15606,8 +15606,8 @@
     "Name": "Abraham Kriel Children's Home",
     "Amount": 1840000.0,
     "Province": [
-      "Mpumalanga",
       "Gauteng",
+      "Mpumalanga",
       "North West"
     ]
   },
@@ -15630,8 +15630,8 @@
     "Amount": 1838110.0,
     "Province": [
       "Limpopo",
-      "Mpumalanga",
-      "Gauteng"
+      "Gauteng",
+      "Mpumalanga"
     ]
   },
   {
@@ -16073,8 +16073,8 @@
     "Name": "SA Mobility for the Blind Trust",
     "Amount": 1792460.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -16231,8 +16231,8 @@
     "Name": "Deafblind South Africa",
     "Amount": 1768103.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
@@ -16401,8 +16401,8 @@
     "Name": "Cape Town International Ballet Competition",
     "Amount": 1750960.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -16540,8 +16540,8 @@
     "Name": "Northern Gauteng Badminton Association",
     "Amount": 1735679.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -16714,7 +16714,7 @@
     ]
   },
   {
-    "Name": "Zibsi o NPC",
+    "Name": "Zibsiflo NPC",
     "Amount": 1710000.0,
     "Province": [
       "Gauteng"
@@ -17050,8 +17050,8 @@
     "Name": "Northern Free State Jukskei Union",
     "Amount": 1667540.0,
     "Province": [
-      "Eastern Cape",
-      "Free State"
+      "Free State",
+      "Eastern Cape"
     ]
   },
   {
@@ -17937,8 +17937,8 @@
     "Name": "GUGULETHU PARENTS FOR ORPHANS",
     "Amount": 1582339.0,
     "Province": [
-      "Kwazulu-Natal",
-      "Gauteng"
+      "Gauteng",
+      "Kwazulu-Natal"
     ]
   },
   {
@@ -18386,8 +18386,8 @@
     "Name": "Moving into Dance Mophatong Trust",
     "Amount": 1545000.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -19673,8 +19673,8 @@
     "Name": "Topsy Foundation",
     "Amount": 1469000.0,
     "Province": [
-      "Mpumalanga",
-      "Gauteng"
+      "Gauteng",
+      "Mpumalanga"
     ]
   },
   {
@@ -20180,8 +20180,8 @@
     "Name": "South African Federation for Mental Health",
     "Amount": 1433500.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -20730,9 +20730,9 @@
     "Name": "National Association for Blind Bowlers",
     "Amount": 1395600.0,
     "Province": [
-      "Kwazulu-Natal",
       "Gauteng",
-      "Western Cape"
+      "Western Cape",
+      "Kwazulu-Natal"
     ]
   },
   {
@@ -21103,8 +21103,8 @@
     "Name": "Rethabile Creche",
     "Amount": 1367849.0,
     "Province": [
-      "North West",
-      "Free State"
+      "Free State",
+      "North West"
     ]
   },
   {
@@ -23101,9 +23101,9 @@
     "Name": "Cheshire Homes South Africa",
     "Amount": 1262000.0,
     "Province": [
-      "Western Cape",
+      "Gauteng",
       "National",
-      "Gauteng"
+      "Western Cape"
     ]
   },
   {
@@ -23455,8 +23455,8 @@
     "Name": "Heidedal Youth Mission Centre",
     "Amount": 1242646.0,
     "Province": [
-      "North West",
-      "Free State"
+      "Free State",
+      "North West"
     ]
   },
   {
@@ -24416,8 +24416,8 @@
     "Name": "Catholic Women's League",
     "Amount": 1194834.0,
     "Province": [
-      "Mpumalanga",
-      "Gauteng"
+      "Gauteng",
+      "Mpumalanga"
     ]
   },
   {
@@ -25523,8 +25523,8 @@
     "Name": "The Big Issue Cape Town",
     "Amount": 1129000.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
@@ -26904,8 +26904,8 @@
     "Name": "Golang-Kulani Early Learning Centre",
     "Amount": 1053635.0,
     "Province": [
-      "Kwazulu-Natal",
-      "Limpopo"
+      "Limpopo",
+      "Kwazulu-Natal"
     ]
   },
   {
@@ -31393,8 +31393,8 @@
     "Name": "Hope Trust",
     "Amount": 923300.0,
     "Province": [
-      "Kwazulu-Natal",
-      "Gauteng"
+      "Gauteng",
+      "Kwazulu-Natal"
     ]
   },
   {
@@ -32123,8 +32123,8 @@
     "Name": "Abbeyfield Society of SA",
     "Amount": 900000.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
@@ -32226,8 +32226,8 @@
     "Name": "South African Underwater Hockey Federation",
     "Amount": 899999.9099999999,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -32461,8 +32461,8 @@
     "Name": "Nelspoort Advice & Development Office",
     "Amount": 890764.0,
     "Province": [
-      "Western Cape",
-      "Gauteng"
+      "Gauteng",
+      "Western Cape"
     ]
   },
   {
@@ -33403,8 +33403,8 @@
     "Amount": 859434.0,
     "Province": [
       "Limpopo",
-      "Mpumalanga",
       "Gauteng",
+      "Mpumalanga",
       "Free State"
     ]
   },
@@ -34041,8 +34041,8 @@
     "Name": "Northern Cricket Union",
     "Amount": 837000.0,
     "Province": [
-      "National",
-      "Gauteng"
+      "Gauteng",
+      "National"
     ]
   },
   {
@@ -34890,8 +34890,8 @@
     "Name": "Joy Day Care Centre",
     "Amount": 817000.0,
     "Province": [
-      "Western Cape",
-      "Mpumalanga"
+      "Mpumalanga",
+      "Western Cape"
     ]
   },
   {
@@ -38740,8 +38740,8 @@
     "Name": "MORITING PRIMARY SCHOOL",
     "Amount": 743614.0,
     "Province": [
-      "Mpumalanga",
-      "Gauteng"
+      "Gauteng",
+      "Mpumalanga"
     ]
   },
   {
@@ -39299,8 +39299,8 @@
     "Name": "Thandanani Drop In Centre",
     "Amount": 729100.0,
     "Province": [
-      "Mpumalanga",
-      "Gauteng"
+      "Gauteng",
+      "Mpumalanga"
     ]
   },
   {
@@ -39865,8 +39865,8 @@
     "Name": "Zingisa No1. Primary School",
     "Amount": 710400.0,
     "Province": [
-      "Northern Cape",
-      "Free State"
+      "Free State",
+      "Northern Cape"
     ]
   },
   {
@@ -41642,8 +41642,8 @@
     "Name": "Thembelihle Day Care",
     "Amount": 692897.0,
     "Province": [
-      "Kwazulu-Natal",
-      "Gauteng"
+      "Gauteng",
+      "Kwazulu-Natal"
     ]
   },
   {
@@ -41834,8 +41834,8 @@
     "Name": "NKUNGUMATHE YOUTH DEVELOPMENT FORUM",
     "Amount": 689741.0,
     "Province": [
-      "Kwazulu-Natal",
-      "Limpopo"
+      "Limpopo",
+      "Kwazulu-Natal"
     ]
   },
   {
@@ -41975,9 +41975,9 @@
     "Name": "Big Brother Big Sisters of SA Observatory",
     "Amount": 686289.0,
     "Province": [
-      "Kwazulu-Natal",
       "Gauteng",
-      "Western Cape"
+      "Western Cape",
+      "Kwazulu-Natal"
     ]
   },
   {
@@ -48748,8 +48748,8 @@
     "Name": "Thusano Home Based Care",
     "Amount": 562603.0,
     "Province": [
-      "North West",
-      "Free State"
+      "Free State",
+      "North West"
     ]
   },
   {
@@ -50771,8 +50771,8 @@
     "Name": "Phakamani Creche",
     "Amount": 537081.0,
     "Province": [
-      "Western Cape",
-      "Kwazulu-Natal"
+      "Kwazulu-Natal",
+      "Western Cape"
     ]
   },
   {
@@ -51803,8 +51803,8 @@
     "Name": "Khanya College",
     "Amount": 522152.0,
     "Province": [
-      "Mpumalanga",
-      "Gauteng"
+      "Gauteng",
+      "Mpumalanga"
     ]
   },
   {
@@ -53910,8 +53910,8 @@
     "Name": "Food Gardens Foundation Johannesburg",
     "Amount": 500000.0,
     "Province": [
-      "Mpumalanga",
-      "Gauteng"
+      "Gauteng",
+      "Mpumalanga"
     ]
   },
   {
@@ -56511,8 +56511,8 @@
     "Name": "South African Sailing",
     "Amount": 495395.0,
     "Province": [
-      "Western Cape",
-      "National"
+      "National",
+      "Western Cape"
     ]
   },
   {
@@ -58092,10 +58092,10 @@
     "Amount": 475146.0,
     "Province": [
       "Mpumalanga",
-      "Gauteng",
-      "North West",
       "Free State",
-      "Western Cape"
+      "Western Cape",
+      "Gauteng",
+      "North West"
     ]
   },
   {
@@ -63036,8 +63036,8 @@
     "Name": "Mogau Day Care Centre",
     "Amount": 418514.0,
     "Province": [
-      "Mpumalanga",
-      "Gauteng"
+      "Gauteng",
+      "Mpumalanga"
     ]
   },
   {
@@ -63193,8 +63193,8 @@
     "Amount": 416811.45999999996,
     "Province": [
       "Kwazulu-Natal",
-      "Eastern Cape",
-      "Northern Cape"
+      "Northern Cape",
+      "Eastern Cape"
     ]
   },
   {
@@ -73818,8 +73818,8 @@
     "Name": "Future Stars F.C",
     "Amount": 335000.0,
     "Province": [
-      "Western Cape",
-      "Limpopo"
+      "Limpopo",
+      "Western Cape"
     ]
   },
   {
@@ -76972,8 +76972,8 @@
     "Name": "Thulasizwe Primary School",
     "Amount": 304300.0,
     "Province": [
-      "Kwazulu-Natal",
-      "Gauteng"
+      "Gauteng",
+      "Kwazulu-Natal"
     ]
   },
   {
@@ -85872,10 +85872,10 @@
     "Name": "Juventus Football Club",
     "Amount": 269890.5,
     "Province": [
-      "Mpumalanga",
       "Gauteng",
-      "Eastern Cape",
-      "Northern Cape"
+      "Mpumalanga",
+      "Northern Cape",
+      "Eastern Cape"
     ]
   },
   {
@@ -86952,8 +86952,8 @@
     "Name": "Home Stars Football Club",
     "Amount": 260010.0,
     "Province": [
-      "Western Cape",
-      "Kwazulu-Natal"
+      "Kwazulu-Natal",
+      "Western Cape"
     ]
   },
   {
@@ -87537,8 +87537,8 @@
     "Name": "Tigers Football Club",
     "Amount": 256156.0,
     "Province": [
-      "Kwazulu-Natal",
-      "Gauteng"
+      "Gauteng",
+      "Kwazulu-Natal"
     ]
   },
   {
@@ -101004,8 +101004,8 @@
     "Name": "Mzamo Day Care Centre",
     "Amount": 198250.0,
     "Province": [
-      "Mpumalanga",
-      "Gauteng"
+      "Gauteng",
+      "Mpumalanga"
     ]
   },
   {
@@ -101458,8 +101458,8 @@
     "Name": "Down Syndrome Association",
     "Amount": 195800.0,
     "Province": [
-      "Kwazulu-Natal",
-      "Gauteng"
+      "Gauteng",
+      "Kwazulu-Natal"
     ]
   },
   {

@@ -25,12 +25,12 @@ export class Treemaps {
     this._filteredData = data;
     this._lookup = lookup;
     this._filters = filters;
-    this._initialFilters = { ...filters };
     this._colors = colors;
     this._overlay = overlay;
     this._grantsCount = 0;
     this._grantsAmount = 0;
     this._tooltip = d3.select('body').append('div').attr('class', 'toolTip')
+      .style('z-index', 99)
       .style('display', 'none')
       .style('position', 'absolute')
       .style('width', 'auto')
@@ -45,7 +45,11 @@ export class Treemaps {
   }
 
   clearFilters() {
-    this._filters = { ...this._initialFilters };
+    Object.keys(this._filters).forEach((filter) => {
+      Object.keys(this._filters[filter]).forEach((key) => {
+        this._filters[filter][key] = true;
+      });
+    });
     this.update();
   }
 
