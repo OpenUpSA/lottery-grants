@@ -6,12 +6,13 @@ const PILL_CONTAINER_SELECTOR = '.filter-current-list';
 const $pillContainer = $(PILL_CONTAINER_SELECTOR).empty().show();
 
 export class FilterSearchSelect {
-  constructor($parent, name, ascending, callback) {
+  constructor($parent, name, ascending, callback, lookup) {
     this._$parent = $parent;
     this._name = name;
     this._filter = null;
     this._ascending = ascending;
     this._callback = callback;
+    this._lookup = lookup;
     this._selected = [];
     this.render();
   }
@@ -27,8 +28,9 @@ export class FilterSearchSelect {
           value,
           true,
           this.applyFilter.bind(this),
+          this._lookup,
         );
-        new Pill($pillContainer, value, this.applyFilter.bind(this));
+        new Pill($pillContainer, value, this.applyFilter.bind(this), this._lookup);
       });
     this.unselectedChildren = this.unselected ? this.unselected
       .filter((value) => !(this._selected.includes(value)))
@@ -42,6 +44,7 @@ export class FilterSearchSelect {
         value,
         this._selected.length ? this._filter[value] : null,
         this.applyFilter.bind(this),
+        this._lookup,
       )) : [];
   }
 

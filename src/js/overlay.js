@@ -25,14 +25,14 @@ export class Overlay {
     this._$parent.find('.heading').text(name);
     const data = ids.map((id) => this._data[id]);
     const count = ids.length;
-    const amount = data.reduce((total, current) => total + Number(current.Amount), 0);
+    const amount = data.reduce((total, current) => total + Number(current.amount), 0);
     $count.text(count);
     $amount.text(formatAmount(amount));
     $container.children().not(HEADER_SELECTOR).remove();
     data.forEach((d) => {
       const $row = $rowTemplate.clone(true, true);
-      $row.find(ROW_AMOUNT_SELECTOR).text(formatAmount(d.Amount));
-      $row.find(ROW_PROJECT_SELECTOR).text(d['Project Number'] || 'unknown');
+      $row.find(ROW_AMOUNT_SELECTOR).text(formatAmount(d.amount));
+      $row.find(ROW_PROJECT_SELECTOR).text(d.projectNumber || 'unknown');
       $container.append($row);
     });
   }

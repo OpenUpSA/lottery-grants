@@ -8,18 +8,19 @@ const $template = $('.filter-checkbox--dropdown')
   .prop('checked', true);
 
 export class FilterSelectOption {
-  constructor($container, value, selected, callback) {
+  constructor($container, value, selected, callback, lookup) {
     this.$container = $container;
-    this.value = value;
-    this.selected = selected;
-    this.callback = callback;
+    this._value = value;
+    this._selected = selected;
+    this._callback = callback;
+    this._lookup = lookup;
     this.render();
   }
 
   render() {
     const $option = $template.clone(true, true)
-      .change({ value: this.value }, this.onChange.bind(this));
-    if (this.selected === true) {
+      .change({ value: this._value }, this.onChange.bind(this));
+    if (this._selected === true) {
       $option.find('.w-checkbox-input')
         .addClass(classChecked);
     } else {
@@ -27,7 +28,7 @@ export class FilterSelectOption {
         .removeClass(classChecked);
     }
     $option.find('.checkbox-label')
-      .text(this.value);
+      .text(this._lookup ? this._lookup[this._value] : this._value);
     this.$checkDiv = $option.find('.w-checkbox-input');
     this.$container.append($option);
   }
@@ -35,12 +36,12 @@ export class FilterSelectOption {
   onChange(evt) {
     evt.preventDefault();
     evt.stopPropagation();
-    this.selected = !this.selected;
-    if (this.selected) {
+    this._selected = !this._selected;
+    if (this._selected) {
       this.$checkDiv.addClass(classChecked);
     } else {
       this.$checkDiv.removeClass(classChecked);
     }
-    this.callback(this.value, this.selected);
+    this._callback(this._value, this._selected);
   }
 }

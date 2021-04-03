@@ -1,12 +1,13 @@
 import { FilterSelectOption } from './filter-select-option';
 
 export class FilterSelect {
-  constructor($parent, name, filter, ascending, callback) {
+  constructor($parent, name, filter, ascending, callback, lookup) {
     this._$parent = $parent;
     this._name = name;
     this._filter = filter;
     this._ascending = ascending;
     this._callback = callback;
+    this._lookup = lookup;
     this._selected = [];
     this._unselected = Object.keys(filter);
     this.render();
@@ -21,6 +22,7 @@ export class FilterSelect {
         value,
         true,
         this.applyFilter.bind(this),
+        this._lookup,
       ));
     this._unselectedChildren = this._unselected
       .sort((a, b) => {
@@ -33,6 +35,7 @@ export class FilterSelect {
         value,
         this._selected.length ? this._filter[value] : null,
         this.applyFilter.bind(this),
+        this._lookup,
       ));
   }
 
@@ -64,7 +67,8 @@ export class FilterSelect {
       this._filter[value] = include;
     }
     this._selected = includeAll ? [] : Object.keys(this._filter).filter((key) => this._filter[key]);
-    this._unselected = includeAll ? Object.keys(this._filter) : Object.keys(this._filter).filter((key) => !this._filter[key]);
+    this._unselected = includeAll
+      ? Object.keys(this._filter) : Object.keys(this._filter).filter((key) => !this._filter[key]);
     this.render(this._unselected);
     this._callback(this._name, this._filter);
   }

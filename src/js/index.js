@@ -11,22 +11,39 @@ const legend = $('.legend__wrapper');
 Promise.all([
   d3.json('data/lookup.json'),
   d3.json('data/year_Sector_Name-treemap.json'),
-  d3.json('data/Name-no-ids.json'),
+  d3.json('data/lookup-names.json'),
+  d3.json('data/lookup-sectors.json'),
   d3.json('data/Province-no-ids.json'),
-  d3.json('data/Sector-no-ids.json'),
 ]).then(([
   lookup,
   data,
-  nameSummary,
+  nameLookup,
+  sectorLookup,
   provinceSummary,
-  sectorSummary,
 ]) => {
+  const lookups = {
+    grant: lookup,
+    name: nameLookup,
+    sector: sectorLookup,
+    province: {
+      N: 'National',
+      EC: 'Eastern Cape',
+      FS: 'Free State',
+      GP: 'Gauteng',
+      KZN: 'Kwazulu-Natal',
+      LP: 'Limpopo',
+      MP: 'Mpumalanga',
+      NC: 'Northern Cape',
+      NW: 'North West',
+      WC: 'Western Cape',
+    },
+  };
   const colors = {
     'Arts, culture and national heritage': legend.find('.legend-swatch--colour-1').css('background-color'),
     Charities: legend.find('.legend-swatch--colour-2').css('background-color'),
     Miscellaneous: legend.find('.legend-swatch--colour-3').css('background-color'),
     'Sports & recreation': legend.find('.legend-swatch--colour-4').css('background-color'),
-    Unspecified: legend.find('.legend-swatch--colour-5').css('background-color'),
+    UNSPECIFIED: legend.find('.legend-swatch--colour-5').css('background-color'),
   };
 
   const years = data.children
@@ -36,23 +53,23 @@ Promise.all([
 
   const provinces = provinceSummary
     .reduce((obj, val) => ({
-      ...obj, [val.Province]: true,
+      ...obj, [val.province]: true,
     }), {});
 
-  const sectors = sectorSummary
-    .reduce((obj, val) => ({
-      ...obj, [val.Sector]: true,
-    }), {});
+  const sectorFilter = Object.keys(sectorLookup).reduce((obj, key) => ({
+    ...obj,
+    [key]: true,
+  }), {});
 
   const filters = {
     year: years,
-    sector: sectors,
-    Province: provinces,
+    sector: sectorFilter,
+    province: provinces,
   };
 
   const overlay = new Overlay($('.beneficiary-info'), lookup);
 
-  const treemaps = new Treemaps($('.data-vis:not(.vis-loading)'), data, lookup, filters, colors, overlay);
+  const treemaps = new Treemaps($('.data-vis:not(.vis-loading)'), data, lookups, filters, colors, overlay);
 
   const filter = (name, values) => {
     treemaps.update(name, values);
@@ -62,20 +79,20 @@ Promise.all([
   const yearFilter = new FilterSelect($yearFilter, 'year', years, false, filter.bind(this));
 
   const $sectorFilter = $('#wf-form-Grant-categories-list');
-  const sectorFilter = new FilterSelect($sectorFilter, 'Sector', sectors, true, filter.bind(this));
+  const sectorFilterSelect = new FilterSelect($sectorFilter, 'sector', sectorFilter, true, filter.bind(this), lookups.sector);
 
   const $provinceFilter = $('#wf-form-Province-list');
-  const provinceFilter = new FilterSelect($provinceFilter, 'Province', provinces, true, filter.bind(this));
+  const provinceFilter = new FilterSelect($provinceFilter, 'province', provinces, true, filter.bind(this), lookups.province);
 
   const $beneficiaryFilter = $('#wf-form-Beneficiaries-list');
-  const beneficiaryFilter = new FilterSearchSelect($beneficiaryFilter, 'Name', true, filter.bind(this));
+  const beneficiaryFilter = new FilterSearchSelect($beneficiaryFilter, 'name', true, filter.bind(this), lookups.name);
   const $beneficiarySearch = $('#wf-form-Beneficiaries-search');
-  new Search($beneficiarySearch, nameSummary, ['Name'], 'Name', beneficiaryFilter.search.bind(beneficiaryFilter));
+  new Search($beneficiarySearch, nameLookup, ['name'], 'name', beneficiaryFilter.search.bind(beneficiaryFilter));
 
   $('.clear-filters').on('click', () => {
     treemaps.clearFilters();
     yearFilter.reset();
-    sectorFilter.reset();
+    sectorFilterSelect.reset();
     provinceFilter.reset();
     beneficiaryFilter.reset();
   });

@@ -4,21 +4,24 @@ import re
 from pathlib import Path
 import pandas as pd
 
-fields = ["Project Number", "Sector", "Province", "Name", "Amount"]
+fields = ["Date", "Project Number", "Sector", "Province", "Name", "Amount"]
+forced_fields = set(["Sector"])
 
-totals = [["Name"], ["Sector"], ["Province"], ["year", "Sector", "Name"]]
+totals = [["name"], ["sector"], ["province"], ["year", "sector", "name"]]
+
+UNSPECIFIED = 'UNSPECIFIED'
 
 province_names = {
-    "ec": "Eastern Cape",
-    "freestate": "Free State",
-    "gauteng": "Gauteng",
-    "kzn": "Kwazulu-Natal",
-    "limpopo": "Limpopo",
-    "mpumalanga": "Mpumalanga",
-    "national": "National",
-    "nc": "Northern Cape",
-    "nw": "North West",
-    "wc": "Western Cape",
+    "ec": "EC",
+    "freestate": "FS",
+    "gauteng": "GP",
+    "kzn": "KZN",
+    "limpopo": "LP",
+    "mpumalanga": "MP",
+    "national": "N",
+    "nc": "NC",
+    "nw": "NW",
+    "wc": "WC",
 }
 
 provinces = {
@@ -58,7 +61,7 @@ provinces = {
 }
 
 sector_names = {
-    "UNSPECIFIED": "Unspecified",
+    "UNSPECIFIED": UNSPECIFIED,
     "arts": "Arts, culture and national heritage",
     "charities": "Charities",
     "miscellaneous": "Miscellaneous",
@@ -66,6 +69,7 @@ sector_names = {
 }
 sectors = {
     "": "UNSPECIFIED",
+    "UNSPECIFIED": "UNSPECIFIED",
     "Arts": "arts",
     "Arts, Culture & National Heritage": "arts",
     "Arts, Culture and National Heritage": "arts",
@@ -96,9 +100,20 @@ data_path = repo_path / "data"
 in_base_path = data_path / "in"
 in_base_paths = sorted(in_base_path.glob("*[!_DIRTY].csv"))
 out_base_path = repo_path / "data/out"
+name_resolution_path = data_path / 'name-resolution.json'
+with name_resolution_path.open() as file:
+    name_resolution = json.load(file)
 
 lookup = {}
 name_map = {}
+index_names = {}
+index_sectors = {UNSPECIFIED: 0}
+
+
+def field_name(input):
+    first, *rest = input.split(' ')
+    output = f'{first.lower()}{"".join([r.capitalize() for r in rest])}'
+    return output
 
 
 def memo_names(name, field, value):
@@ -109,10 +124,14 @@ def memo_names(name, field, value):
 
 def process_lookup():
     array = []
+    id = 0
+    name_id = 0
+    sector_id = 1
     out_lookup_path = out_base_path / "lookup.json"
     out_names_path = out_base_path / "names_memo.json"
     out_array_path = out_base_path / "array.json"
-    id = 0
+    out_lookup_names = out_base_path / "lookup-names.json"
+    out_lookup_sectors = out_base_path / "lookup-sectors.json"
     for in_base_path in in_base_paths:
         match = re.match(r".*?([1-2][0|9][0-9][0-9]).*", str(in_base_path))
         yearfrom = match.group(1)
@@ -121,22 +140,50 @@ def process_lookup():
         print(f'\nProcessing "{str(in_base_path)}" as year {year}')
         with in_base_path.open() as file:
             reader = csv.DictReader(file)
-            out_fields = list(set(fields) & set(reader.fieldnames))
+            out_fields = list((set(fields) & set(reader.fieldnames)).union(forced_fields))
             print(f" - matched fields: {out_fields}")
             print(f" - missing fields: {list(set(fields) - set(out_fields))}")
             for row in reader:
                 out_obj = {"year": year}
                 for field in out_fields:
-                    value = row[field].replace("\n", " ")
-                    if field == "Sector":
+                    value = row.setdefault(field, UNSPECIFIED).replace("\n", " ").strip()
+                    if field == 'Name':
+                        # Remove chars from displayed name
+                        value = re.sub(u"(\u2018|\u2019)", '', value)
+                        value = re.sub(u"(\u2013)", '-', value)
+                        value = re.sub(u"(\u2013)", '-', value)
+                        # Collapse to single lookup name
+                        value_resolve = value.upper()
+                        value_resolve = value_resolve.replace("'", '').replace('`', '')
+                        value_resolve = value_resolve.replace(' - ', ' ')
+                        value_resolve = value_resolve.replace(',', '')
+                        value_resolve = value_resolve.replace(',', '')
+                        value = name_resolution.setdefault(value_resolve, value)
+                        if value not in index_names:
+                            index_names[value] = name_id
+                            name_id += 1
+                        value = str(index_names[value])
+                    elif field == "Sector":
                         value = sector_names[sectors[value]]
+                        if value not in index_sectors:
+                            index_sectors[value] = sector_id
+                            sector_id += 1
+                        value = str(index_sectors[value])
                     elif field == "Province":
                         value = province_names[provinces[value]]
                         memo_names(row["Name"].replace("\n", " "), "Province", value)
-                    out_obj[field] = value.strip()
+                    out_obj[field_name(field)] = value
                 lookup[id] = out_obj
                 array.append(out_obj)
                 id += 1
+    lookup_names = {value: key for key, value in index_names.items()}
+    with name_resolution_path.open('w') as file:
+        json.dump(name_resolution, file, indent=2)
+    with out_lookup_names.open("w") as file:
+        json.dump(lookup_names, file, indent=2)
+    lookup_sectors = {value: key for key, value in index_sectors.items()}
+    with out_lookup_sectors.open("w") as file:
+        json.dump(lookup_sectors, file, indent=2)
     with out_lookup_path.open("w") as file:
         json.dump(lookup, file, indent=2)
     with out_array_path.open("w") as file:
@@ -154,9 +201,9 @@ def add_agg_layer(result, fields, index, row, i):
             result[index[i]] = {} if i < len(fields) - 2 else []
         add_agg_layer(result[index[i]], fields, index, row, i + 1)
     else:
-        obj = {fields[i]: index[i], "Amount": row.Amount, "ids": row.ids}
-        if "Name" in obj and obj["Name"] in name_map:
-            obj["Province"] = name_map[obj["Name"]]["Province"]
+        obj = {fields[i]: index[i], "amount": row.amount, "ids": row.ids}
+        if "name" in obj and obj["name"] in name_map:
+            obj["province"] = name_map[obj["name"]]["province"]
         result.append(obj)
 
 
@@ -184,14 +231,15 @@ def treemap(input, levels, i, key=None):
 
 def process_totals(data):
     df = pd.DataFrame.from_dict(data, orient="index")
-    df["Amount"] = pd.to_numeric(df["Amount"])
+    df["sector"] = df["sector"].fillna(0)
+    df["amount"] = pd.to_numeric(df["amount"])
     df["ids"] = df.reset_index().index
     for fields in totals:
-        grouped = df.groupby(fields).agg({"Amount": "sum", "ids": lambda x: x.tolist()})
-        grouped = grouped.sort_values(by="Amount", ascending=False)
+        grouped = df.groupby(fields).agg({"amount": "sum", "ids": lambda x: x.tolist()})
+        grouped = grouped.sort_values(by="amount", ascending=False)
         result = [] if len(fields) == 1 else {}
         for row in grouped.itertuples():
-            index = [row.Index] if isinstance(row.Index, str) else row.Index
+            index = [row.Index] if isinstance(row.Index, (str, int)) else row.Index
             add_agg_layer(result, fields, index, row, 0)
         base_name = "_".join(fields)
         out_path = out_base_path / f"{base_name}.json"

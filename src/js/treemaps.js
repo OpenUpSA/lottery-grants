@@ -19,12 +19,19 @@ const maxWidth = window.innerWidth > 767
 const height = (window.innerHeight / 8);
 
 export class Treemaps {
-  constructor($parent, data, lookup, filters, colors, overlay) {
+  constructor($parent, data, lookups, filters, colors, overlay) {
     $parent.append(`<div id="${TREEMAP_ID}"></div>`);
     this._data = data;
     this._filteredData = data;
-    this._lookup = lookup;
+    this._lookups = lookups;
     this._filters = filters;
+    this._initialFilters = {};
+    Object.keys(this._filters).forEach((filter) => {
+      this._initialFilters[filter] = {};
+      Object.keys(this._filters[filter]).forEach((key) => {
+        this._initialFilters[filter][key] = true;
+      });
+    });
     this._colors = colors;
     this._overlay = overlay;
     this._grantsCount = 0;
@@ -45,34 +52,47 @@ export class Treemaps {
   }
 
   clearFilters() {
-    Object.keys(this._filters).forEach((filter) => {
-      Object.keys(this._filters[filter]).forEach((key) => {
+    this._filters = {};
+    Object.keys(this._initialFilters).forEach((filter) => {
+      this._filters[filter] = {};
+      Object.keys(this._initialFilters[filter]).forEach((key) => {
         this._filters[filter][key] = true;
       });
     });
+    // Object.keys(this._filters).forEach((filter) => {
+    //   Object.keys(this._filters[filter]).forEach((key) => {
+    //     this._filters[filter][key] = true;
+    //   });
+    // });
     this.update();
   }
 
   downloadFiltered() {
     const rows = [
-      ['year', 'sector', 'name', 'id', 'province', 'amount'],
+      ['year', 'sector', 'name', 'province', 'projectNumber', 'date', 'amount'],
     ];
     this._filteredData.children.forEach((yearNode) => {
       yearNode.children.forEach((sectorNode) => {
         sectorNode.children.forEach((nameNode) => {
           nameNode.ids.forEach((id) => {
-            const grant = this._lookup[id];
+            const grant = this._lookups.grant[id];
             if (grant.year !== yearNode.year) {
               alert(`Data issue - treemap year ${yearNode.year} and data year ${grant.year} different!`);
             }
-            if (grant.Sector !== sectorNode.Sector) {
-              alert(`Data issue - treemap sector ${sectorNode.Sector} and data sector ${grant.Sector} different!`);
+            if (grant.sector !== sectorNode.sector) {
+              alert(`Data issue - treemap sector ${sectorNode.sector} and data sector ${grant.sector} different!`);
             }
-            if (grant.Name !== nameNode.Name) {
-              alert(`Data issue - treemap name ${nameNode.Name} and data name ${grant.Name} different!`);
+            if (grant.name !== nameNode.name) {
+              alert(`Data issue - treemap name ${nameNode.name} and data name ${grant.name} different!`);
             }
             rows.push([
-              grant.year, `"${grant.Sector}"`, `"${grant.Name}"`, id, grant.Province, grant.Amount,
+              grant.year,
+              `"${this._lookups.sector[grant.sector]}"`,
+              `"${this._lookups.name[grant.name]}"`,
+              grant.province,
+              grant.projectNumber,
+              grant.date,
+              grant.amount,
             ]);
           });
         });
@@ -109,21 +129,22 @@ export class Treemaps {
         .map((year) => ({
           year: year.year,
           children: year.children
-            .filter((sector) => this._filters.sector[sector.Sector] === true)
+            .filter((sector) => this._filters.sector[sector.sector] === true)
             .map((sector) => ({
-              Sector: sector.Sector,
+              sector: sector.sector,
               children: sector.children
                 .filter((name) => {
-                  const beneficiary = name.Name;
-                  const provinceAll = Object.keys(this._filters.Province)
-                    .reduce((all, curr) => all && this._filters.Province[curr], true);
+                  const beneficiary = name.name;
+                  const provinceAll = Object.keys(this._filters.province)
+                    .reduce((all, curr) => all && this._filters.province[curr], true);
                   const grantIds = provinceAll ? name.ids : name.ids
-                    .filter((id) => this._filters.Province[this._lookup[id].Province] === true);
+                    .filter((id) => this._filters
+                      .province[this._lookups.grant[id].province] === true);
                   const include = grantIds.length
-                    && (!this._filters.Name || this._filters.Name[beneficiary] === true);
+                    && (!this._filters.name || this._filters.name[beneficiary] === true);
                   if (include) {
                     this._grantsCount += 1;
-                    this._grantsAmount += name.Amount;
+                    this._grantsAmount += name.amount;
                   }
                   return include;
                 }),
@@ -136,7 +157,7 @@ export class Treemaps {
     this._filteredData.children.forEach((year) => {
       this.sums[year.year] = year.children
         .reduce((acc, sector) => acc + sector.children
-          .reduce((subacc, entity) => subacc + entity.Amount, 0), 0);
+          .reduce((subacc, entity) => subacc + entity.amount, 0), 0);
     });
     const max = Object.keys(this.sums).reduce((acc, year) => Math.max(acc, this.sums[year]), 0);
     const yearDivs = d3.select(`#${TREEMAP_ID}`)
@@ -154,41 +175,43 @@ export class Treemaps {
       .remove();
 
     this._filteredData.children.forEach((year) => {
-      const width = (this.sums[year.year] / max) * maxWidth || 1;
-      const root = d3.hierarchy(year).sum((d) => d.Amount);
-      d3.treemap()
-        .size([width, height])
-        .padding(2)(root);
-      d3.select(`#year-${year.year}`)
-        .append('svg')
-        .attr('id', `year-${year.year}-svg`)
-        .attr('width', width || 0)
-        .attr('height', height || 0);
-      const charts = d3.select(`#year-${year.year}-svg`)
-        .selectAll('rect')
-        .data(root.leaves());
-      charts.enter()
-        .append('rect')
-        .attr('x', (d) => d.x0)
-        .attr('y', (d) => d.y0)
-        .attr('width', (d) => d.x1 - d.x0)
-        .attr('height', (d) => d.y1 - d.y0)
-        .style('fill', (d) => this._colors[d.parent.data.Sector])
-        .on('mousemove', (evt, d) => {
-          this._tooltip.style('left', `${evt.pageX + 10}px`);
-          this._tooltip.style('top', `${evt.pageY}px`);
-          this._tooltip.style('display', 'inline-block');
-          this._tooltip.html(`${d.data.Name}<br>R${formatAmount(d.data.Amount)}`);
-        })
-        .on('mouseout', () => {
-          this._tooltip.style('display', 'none');
-        })
-        .on('click', (evt, d) => {
-          this._overlay.update(d.data.Name, d.data.ids);
-        });
-      charts.exit()
-        .remove();
-      $loadingEl.hide();
+      if (year.children.length) {
+        const width = (this.sums[year.year] / max) * maxWidth || 1;
+        const root = d3.hierarchy(year).sum((d) => d.amount);
+        d3.treemap()
+          .size([width, height])
+          .padding(2)(root);
+        d3.select(`#year-${year.year}`)
+          .append('svg')
+          .attr('id', `year-${year.year}-svg`)
+          .attr('width', width || 0)
+          .attr('height', height || 0);
+        const charts = d3.select(`#year-${year.year}-svg`)
+          .selectAll('rect')
+          .data(root.leaves());
+        charts.enter()
+          .append('rect')
+          .attr('x', (d) => d.x0)
+          .attr('y', (d) => d.y0)
+          .attr('width', (d) => d.x1 - d.x0)
+          .attr('height', (d) => d.y1 - d.y0)
+          .style('fill', (d) => (d.parent ? this._colors[this._lookups.sector[d.parent.data.sector]] : 'red'))
+          .on('mousemove', (evt, d) => {
+            this._tooltip.style('left', `${evt.pageX + 10}px`);
+            this._tooltip.style('top', `${evt.pageY}px`);
+            this._tooltip.style('display', 'inline-block');
+            this._tooltip.html(`${this._lookups.name[d.data.name]}<br>R${formatAmount(d.data.amount)}`);
+          })
+          .on('mouseout', () => {
+            this._tooltip.style('display', 'none');
+          })
+          .on('click', (evt, d) => {
+            this._overlay.update(this._lookups.name[d.data.name], d.data.ids);
+          });
+        charts.exit()
+          .remove();
+        $loadingEl.hide();
+      }
     });
   }
 }

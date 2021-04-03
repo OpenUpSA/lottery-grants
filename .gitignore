@@ -5,7 +5,7 @@
 !data/out/year_Sector_Name-treemap.json
 !data/out/Name-no-ids.json
 !data/out/Province-no-ids.json
-!data/out/Sector-no-ids.json
+!data/out/lookup-*.json
 
 webflow-export.zip
 
