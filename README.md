@@ -11,7 +11,7 @@ Document https://www.dropbox.com/sh/v51lkxz82szx2dq/AADeZ4G7zQKiNBpPoVFk2iPra?dl
 - [ ] Update with latest webflow export: include treemap loading div. @Matt loading not showing at top after content added
 - [ ] Avoid CSS `//` comments from webflow or post-process in webflow import. @Matt ?
 - [ ] Filter panel on narrow screen does not go away when clicking outside of it @Matt ?
-- [ ] Spaces not working in search. @Matt webflow spacebar event handling?
+- [x] Spaces not working in search. @Matt webflow spacebar event handling?
 - [x] Collapse beneficiary names (case and punctuation)
 - [x] Add project number and date to CSV export
 - [x] Reduced data size. Had grown to over 20MB with with data and fields, restructuring reduced to around 13MB.

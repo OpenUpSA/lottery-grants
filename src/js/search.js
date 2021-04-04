@@ -5,7 +5,8 @@ export class Search {
   constructor($parent, searchData, searchFields, keyField, callback) {
     const searchService = new SearchService().index(searchData);
     $parent.find('.search-input')
-      .on('input', (evt) => {
+      .on('keydown', (evt) => {
+        evt.stopPropagation();
         const { value } = evt.target;
         searchService.search(value, callback);
       });
