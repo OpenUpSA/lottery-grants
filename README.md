@@ -2,12 +2,12 @@
 
 This repo provides data processing from source CSV files, and a website to explore Lottery grants.
 
-## TODO
-
-Document https://www.dropbox.com/sh/v51lkxz82szx2dq/AADeZ4G7zQKiNBpPoVFk2iPra?dl=0
-
 ### MVP
 
+- [ ] Add hyperlinks to external stuff in tab (@Matt)
+- [ ] Figure out why chart sometimes goes too wide
+- [ ] Filter Limpopo -> UNSPECIFIED -> 2019 - stuck on loading
+- [ ] Show province in popup table
 - [ ] Update with latest webflow export: include treemap loading div. @Matt loading not showing at top after content added
 - [ ] Avoid CSS `//` comments from webflow or post-process in webflow import. @Matt ?
 - [ ] Filter panel on narrow screen does not go away when clicking outside of it @Matt ?
@@ -33,14 +33,13 @@ Document https://www.dropbox.com/sh/v51lkxz82szx2dq/AADeZ4G7zQKiNBpPoVFk2iPra?dl
 
 - [ ] Show all time top 10 beneficiaries by amount on website
 - [ ] Change processing of input CSV data so that Netlify deployment can generate data?
+- [ ] Figure out date types (allocation etc?) and include in popup table
 
 ## Development
 
 Data processing is done using Python, website UX design in Webflow, and website dynamics using jQuery and D3.js.
 
 ### Generate data from CSV files
-
-> NB: check funny rows e.g. ',Charities,Western Cape,Ikhwezilokusa Home for Mentally & Physically Disabled Children:: Meyerton' in `NLC-2003-2004 - cleaned`
 
 A Python virtual environment may be used as follows (run commands from `data` directory):
 
@@ -54,6 +53,13 @@ To generate data for the website, save CSV files to `/data/in/*{year}*.csv`, for
 cd data
 python3 transform.py
 ```
+
+These files are taken from from [Dropbox folder](https://www.dropbox.com/sh/v51lkxz82szx2dq/AAC7pdcLNGL9QonGhlqVlO5Ua/lottery). For files ending with a counter, e.g. `NLC-2003-2004 - cleaned2.csv`, take the latest one.
+
+TODO: Manual actions (to be fixed at source):
+
+- `NLC-2003-2004 - cleaned2.csv` - header row 'Name,Sector,Province,Amount' moved from line 180 to line 1
+
 
 ### Import Webflow export
 

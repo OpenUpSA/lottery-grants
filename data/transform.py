@@ -12,6 +12,7 @@ totals = [["name"], ["sector"], ["province"], ["year", "sector", "name"]]
 UNSPECIFIED = 'UNSPECIFIED'
 
 province_names = {
+    UNSPECIFIED: UNSPECIFIED,
     "ec": "EC",
     "freestate": "FS",
     "gauteng": "GP",
@@ -25,6 +26,7 @@ province_names = {
 }
 
 provinces = {
+    "Unknown": UNSPECIFIED,
     "EC": "ec",
     "EASTERN CAPE": "ec",
     "Eastern Cape": "ec",
@@ -37,6 +39,7 @@ provinces = {
     "Gauteng": "gauteng",
     "KZN": "kzn",
     "KWAZULU-NATAL": "kzn",
+    "KwaZulu-Natal": "kzn",
     "KwaZulu Natal": "kzn",
     "KWAZULU NATAL": "kzn",
     "KWA-ZULU NATAL": "kzn",
