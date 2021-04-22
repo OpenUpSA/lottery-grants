@@ -52,6 +52,7 @@ export class FilterSearchSelect {
 
   reset() {
     this._selected = [];
+    this._filter = null;
     this.render();
   }
 
