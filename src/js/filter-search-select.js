@@ -17,19 +17,21 @@ export class FilterSearchSelect {
     this.render();
   }
 
-  render() {
-    this._$parent.empty();
+  render(selectedIndex) {
+    // This unfortunate bit is to avoid the dropdown closing
+    const selectedName = this._lookup[selectedIndex];
+    this._$parent.children().each((i, child) => {
+      if ($(child).find('span').text() === selectedName) {
+        $(child).hide();
+      } else {
+        child.remove();
+      }
+    });
+
     const factor = this._ascending ? 1 : -1;
     $pillContainer.empty();
     this._selected
       .forEach((value) => {
-        new FilterSelectOption(
-          this._$parent,
-          value,
-          true,
-          this.applyFilter.bind(this),
-          this._lookup,
-        );
         new Pill($pillContainer, value, this.applyFilter.bind(this), this._lookup);
       });
     this.unselectedChildren = this.unselected ? this.unselected
@@ -54,8 +56,7 @@ export class FilterSearchSelect {
   }
 
   search(keys) {
-    this.unselected = keys.slice(0, 30);
-    // subtract already selected ones?
+    this.unselected = keys.slice(0, 30).filter((i) => !this._filter || !this._filter[i]);
     this.render();
   }
 
@@ -67,7 +68,7 @@ export class FilterSearchSelect {
       .reduce((obj, val) => ({
         ...obj, [val]: true,
       }), {}) : null;
-    this.render();
+    this.render(value);
     this._callback(this._name, this._filter);
   }
 }
