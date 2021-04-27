@@ -1,6 +1,8 @@
-<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  --><!--  Last Published: Mon Mar 29 2021 12:51:48 GMT+0000 (Coordinated Universal Time)  --><html data-wf-page="5fc6268c09814dcd492b20ee" data-wf-site="5fc6268c09814d78a22b20ed"><head>
+<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  --><!--  Last Published: Fri Apr 23 2021 07:05:38 GMT+0000 (Coordinated Universal Time)  --><html data-wf-page="6082676d1544f5777b6952ca" data-wf-site="5fc6268c09814d78a22b20ed"><head>
   <meta charset="utf-8">
-  <title>National Lottery Explorer</title>
+  <title>Search Dropdown</title>
+  <meta content="Search Dropdown" property="og:title">
+  <meta content="Search Dropdown" property="twitter:title">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Webflow" name="generator">
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
@@ -43,7 +45,7 @@
     <div style="display:none" class="beneficiary-detail__wrapper">
       <div class="container container--mobile-fullwidth">
         <div class="layout-grid layout-grid--3-4-1-4">
-          <div id="w-node-_37ecb32d-cd92-b46c-71a4-480ef6d64e6f-492b20ee" class="beneficiary-info">
+          <div id="w-node-_37ecb32d-cd92-b46c-71a4-480ef6d64e6f-7b6952ca" class="beneficiary-info">
             <div class="header header--with-close">
               <h2 class="heading heading--clear">Loading...</h2>
               <div data-w-id="bcb55126-bda8-a031-a245-17bd046815a5" class="header__close"><img src="images/close-icon.svg" loading="lazy" width="24" alt="" class="close-icon"></div>
@@ -60,10 +62,12 @@
               <div class="beneficiary-data__row beneficiary-data__row--header">
                 <div class="beneficiary-data__row-allocation">Amount</div>
                 <div class="beneficiary-data__row-code">Project #</div>
+                <div class="beneficiary-data__row-province">Province</div>
               </div>
               <div class="beneficiary-data__row">
                 <div class="beneficiary-data__row-allocation">Loading...</div>
                 <div class="beneficiary-data__row-code">Loading...</div>
+                <div class="beneficiary-data__row-province">Loading...</div>
               </div>
             </div>
             <div class="beneficiary-info__options">
@@ -83,10 +87,19 @@
     <div class="container">
       <div class="layout-grid layout-grid--3-4-1-4">
         <div class="vis-block basic-grid">
+          <div class="useful-links">
+            <div class="text-block">Useful external links:<strong></strong></div>
+            <a href="https://www.nlcsa.org.za/annual-reports/" target="_blank" class="button useful-link w-inline-block"><img src="images/menu_book_black_24dp.svg" loading="lazy" alt="" class="useful-links___icon">
+              <div>Explore the NLC's annual reports </div>
+            </a>
+            <a href="https://bizportal.gov.za/business_profile.aspx" target="_blank" class="button useful-link w-inline-block"><img src="images/search_black_24dp.svg" loading="lazy" alt="" class="useful-links___icon">
+              <div>CIPC&nbsp;search tool</div>
+            </a>
+            <a href="http://www.npo.gov.za/PublicNpo/Npo" target="_blank" class="button useful-link w-inline-block"><img src="images/search_black_24dp.svg" loading="lazy" alt="" class="useful-links___icon">
+              <div>NPO&nbsp;search tool</div>
+            </a>
+          </div>
           <h2 class="heading heading--underline">Awarded Grants</h2>
-          <a href="https://www.nlcsa.org.za/annual-reports/" target="_blank" class="button annual-reports w-inline-block"><img src="images/menu_book_black_24dp.svg" loading="lazy" alt="" class="annual-reports___icon">
-            <div>Explore the NLC's annual reports </div>
-          </a>
           <div class="current-info__selected">
             <div class="block block--margin">
               <div>Showing: <span class="current-info__showing">Loading...</span></div>
@@ -128,6 +141,7 @@
           <div data-w-id="43f85d6c-68a8-fe75-2b26-4119e7582c75" class="mobile-toggle-open"><img src="images/notes-24px-white.svg" loading="lazy" alt="" class="filter-icon">
             <div>Filters</div>
           </div>
+          <div data-w-id="50704184-dfd6-b43a-2237-6193a262033d" class="filter-panel__close-button"><img src="images/close-white-24px.svg" loading="lazy" width="24" height="24" alt="" class="icon"></div>
           <div class="filter-panel__inner">
             <h2 class="heading heading--mb heading--underline">Filters</h2>
             <div class="filter-panel__filters">
@@ -135,10 +149,10 @@
                 <div class="filter-header">
                   <div>Grant beneficiary</div>
                 </div>
-                <div data-hover="" data-delay="0" class="filter-dropdown w-dropdown">
-                  <div class="dropdown-toggle w-dropdown-toggle">
+                <div class="filter-dropdown">
+                  <div class="dropdown-toggle">
                     <div id="beneficiaries-search" class="search__wrapper w-form">
-                      <form id="wf-form-Beneficiaries-search" name="wf-form-Beneficiaries-search" data-name="Beneficiaries search" method="post" class="search-field"><input type="text" class="search-input w-input" autocomplete="off" autofocus="true" maxlength="256" name="field" data-name="Field" placeholder="Type here to start a search..." id="search">
+                      <form id="wf-form-Beneficiaries-search" name="wf-form-Beneficiaries-search" data-name="Beneficiaries search" method="post" class="search-field"><input type="text" class="search-input w-input" autocomplete="off" autofocus="true" maxlength="256" name="field" data-name="Field" placeholder="Type here to start a search..." data-w-id="9f16ffb3-3aa4-0aef-e315-51af0d276362" id="search">
                         <div class="search__icon"><img src="images/search-icon.svg" loading="eager" alt="" class="search-icon"></div>
                       </form>
                       <div class="w-form-done">
@@ -149,7 +163,7 @@
                       </div>
                     </div>
                   </div>
-                  <nav class="dropdown-list w-dropdown-list">
+                  <div class="dropdown-list">
                     <div id="beneficiaries-search-list" class="dropdown-list__items content__scroll w-form">
                       <form id="wf-form-Beneficiaries-list" name="wf-form-Beneficiaries-list" data-name="Beneficiaries list" method="post">
                         <div class="filter-loading"><img src="images/loading.gif" width="10" alt="" class="filter-loading__icon">
@@ -165,7 +179,8 @@
                         <div>Oops! Something went wrong while submitting the form.</div>
                       </div>
                     </div>
-                  </nav>
+                  </div>
+                  <div data-w-id="5a2b1334-1a91-bcc0-6181-9cac1e4d824c" class="dropdown-close"></div>
                 </div>
                 <div class="filter-current-list hidden">
                   <div class="filter-current">
@@ -186,7 +201,7 @@
                           <div class="filter-loading"><img src="images/loading.gif" width="10" alt="" class="filter-loading__icon">
                             <div class="filter-loading__label">Loading...</div>
                           </div><label class="w-checkbox filter-checkbox hidden">
-                            <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div><input type="checkbox" data-name="Checkbox 5" name="checkbox-5" style="opacity:0;position:absolute;z-index:-1"><span class="checkbox-label w-form-label">Loading...</span>
+                            <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div><input type="checkbox" data-name="Checkbox 2" name="checkbox-2" style="opacity:0;position:absolute;z-index:-1"><span class="checkbox-label w-form-label">Loading...</span>
                           </label>
                         </form>
                         <div class="w-form-done">
@@ -298,7 +313,7 @@
   }
   /*thumb*/
   .content__scroll::-webkit-scrollbar-thumb {
-  background:rgba(0, 0, 0, 0.05);
+  background:rgba(0, 0, 0, 1);
   border-width:6px;
   border-style:none;
   border-radius:3px;
