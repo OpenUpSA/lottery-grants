@@ -207,7 +207,7 @@ export class Treemaps {
             this._tooltip.style('left', `${evt.pageX + 10}px`);
             this._tooltip.style('top', `${evt.pageY}px`);
             this._tooltip.style('display', 'inline-block');
-            this._tooltip.html(`${this._lookups.name[d.data.name]}<br>R${formatAmount(d.data.amount)}`);
+            this._tooltip.html(`${this._lookups.name[d.data.name]}<br>${formatAmount(d.data.amount)}`);
           })
           .on('mouseout', () => {
             this._tooltip.style('display', 'none');
