@@ -67,7 +67,7 @@ Promise.all([
     province: provinces,
   };
 
-  const overlay = new Overlay($('.beneficiary-info'), lookup);
+  const overlay = new Overlay($('.beneficiary-info'), lookup, lookups);
 
   const treemaps = new Treemaps($('.data-vis:not(.vis-loading)'), data, lookups, filters, colors, overlay);
 
