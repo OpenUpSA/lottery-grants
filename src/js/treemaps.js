@@ -13,9 +13,9 @@ const $loadingEl = $(LOADING_SELECTOR);
 const $count = $(COUNT_SELECTOR);
 const $amount = $(AMOUNT_SELECTOR);
 
-const maxWidth = window.innerWidth > 992
-  ? (window.innerWidth - 300 - 48 * 2)
-  : window.innerWidth - 16 * 2;
+const maxWidth = Math.min(window.innerWidth > 992
+  ? (window.innerWidth - 400 - 48 * 2)
+  : window.innerWidth - 16 * 2, 992);
 
 // TODO FOR DEBUGGING WIDTH BUG (pushes filter off screen)
 console.log(`window.innerWidth: ${window.innerWidth}`);
