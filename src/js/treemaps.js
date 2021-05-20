@@ -13,13 +13,9 @@ const $loadingEl = $(LOADING_SELECTOR);
 const $count = $(COUNT_SELECTOR);
 const $amount = $(AMOUNT_SELECTOR);
 
-const maxWidth = window.innerWidth > 992
-  ? (window.innerWidth - 300 - 48 * 2)
-  : window.innerWidth - 16 * 2;
-
-// TODO FOR DEBUGGING WIDTH BUG (pushes filter off screen)
-console.log(`window.innerWidth: ${window.innerWidth}`);
-console.log(`maxWidth: ${maxWidth}`);
+const maxWidth = Math.min(window.innerWidth > 992
+  ? (window.innerWidth - 400 - 48 * 2)
+  : window.innerWidth - 16 * 2, 992);
 
 const height = (window.innerHeight / 8);
 
@@ -183,8 +179,6 @@ export class Treemaps {
       if (year.children.length) {
         const width = (this.sums[year.year] / max) * maxWidth || 1;
         const root = d3.hierarchy(year).sum((d) => d.amount);
-        // TODO FOR DEBUGGING WIDTH BUG (pushes filter off screen)
-        console.log(`year ${year.year} width: ${width}`);
         d3.treemap()
           .size([width, height])
           .padding(2)(root);
