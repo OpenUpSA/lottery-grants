@@ -17,10 +17,6 @@ const maxWidth = Math.min(window.innerWidth > 992
   ? (window.innerWidth - 400 - 48 * 2)
   : window.innerWidth - 16 * 2, 992);
 
-// TODO FOR DEBUGGING WIDTH BUG (pushes filter off screen)
-console.log(`window.innerWidth: ${window.innerWidth}`);
-console.log(`maxWidth: ${maxWidth}`);
-
 const height = (window.innerHeight / 8);
 
 export class Treemaps {
@@ -183,8 +179,6 @@ export class Treemaps {
       if (year.children.length) {
         const width = (this.sums[year.year] / max) * maxWidth || 1;
         const root = d3.hierarchy(year).sum((d) => d.amount);
-        // TODO FOR DEBUGGING WIDTH BUG (pushes filter off screen)
-        console.log(`year ${year.year} width: ${width}`);
         d3.treemap()
           .size([width, height])
           .padding(2)(root);
