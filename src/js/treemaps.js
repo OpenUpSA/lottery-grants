@@ -49,6 +49,11 @@ export class Treemaps {
       .style('border-radius', '0.25rem')
       .style('padding', '0.5rem');
     $(DOWNLOAD_ACTION_SELECTOR).on('click', this.downloadFiltered.bind(this));
+    this._totals = {
+      year: {},
+      province: {},
+      sector: {},
+    };
     this.update();
   }
 
@@ -60,11 +65,6 @@ export class Treemaps {
         this._filters[filter][key] = true;
       });
     });
-    // Object.keys(this._filters).forEach((filter) => {
-    //   Object.keys(this._filters[filter]).forEach((key) => {
-    //     this._filters[filter][key] = true;
-    //   });
-    // });
     this.update();
   }
 
@@ -118,7 +118,7 @@ export class Treemaps {
     if (filter) {
       this._filters[filter] = values;
     }
-
+    this._clearTotals();
     this._filteredData = {
       children: this._data.children
         .filter((year) => this._filters.year[year.year] === true)
@@ -146,6 +146,13 @@ export class Treemaps {
                   if (include) {
                     this._grantsCount += 1;
                     this._grantsAmount += name.amount;
+                    this._totals.year[year.year] += name.amount;
+                    this._totals.sector[sector.sector] += name.amount;
+                    name.ids.forEach((id) => {
+                      this._totals.province[
+                        this._lookups.grant[id].province
+                      ] += this._lookups.grant[id].amount;
+                    });
                   }
                   return include;
                 }),
@@ -160,6 +167,8 @@ export class Treemaps {
         .reduce((acc, sector) => acc + sector.children
           .reduce((subacc, entity) => subacc + entity.amount, 0), 0);
     });
+    this._filteredData.children = this._filteredData.children
+      .filter((year) => this.sums[year.year] > 0);
     const max = Object.keys(this.sums).reduce((acc, year) => Math.max(acc, this.sums[year]), 0);
     const yearDivs = d3.select(`#${TREEMAP_ID}`)
       .selectAll('div')
@@ -211,8 +220,16 @@ export class Treemaps {
           });
         charts.exit()
           .remove();
-        $loadingEl.hide();
       }
+    });
+    $loadingEl.hide();
+  }
+
+  _clearTotals() {
+    Object.keys(this._totals).forEach((dim) => {
+      Object.keys(this._totals[dim]).forEach((key) => {
+        this._totals[dim][key] = 0;
+      });
     });
   }
 }
