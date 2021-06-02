@@ -197,6 +197,20 @@ strong {
   color: #fff;
 }
 
+.nav-link.is--about {
+  background-color: hsla(0, 0%, 100%, 0.1);
+  color: #ddd;
+}
+
+.nav-link.is--about:hover {
+  background-color: hsla(0, 0%, 100%, 0.2);
+}
+
+.nav-link.is--about:active {
+  background-color: hsla(0, 0%, 100%, 0.35);
+  color: #fff;
+}
+
 .navbar__inner {
   display: -webkit-box;
   display: -webkit-flex;
@@ -214,7 +228,10 @@ strong {
 }
 
 .nav-menu {
-  display: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   height: 100%;
   -webkit-box-align: center;
   -webkit-align-items: center;
@@ -1426,6 +1443,67 @@ strong {
   display: none;
 }
 
+.about__wrapper {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 99999;
+  display: none;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.55);
+}
+
+.about-modal {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  margin-right: 24px;
+  margin-left: 24px;
+  padding: 32px;
+  background-color: #fff;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.modal__close {
+  position: absolute;
+  left: auto;
+  top: 16px;
+  right: 16px;
+  bottom: auto;
+  z-index: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 44px;
+  height: 44px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.modal-content {
+  margin-top: 16px;
+  margin-bottom: 0px;
+}
+
 @media screen and (max-width: 991px) {
   h3 {
     font-size: 16px;
@@ -1546,6 +1624,36 @@ strong {
   .icon {
     margin-right: 0px;
   }
+
+  .about-modal {
+    z-index: 1001;
+    font-size: 12.5px;
+  }
+
+  .about-modal.webflow {
+    right: 0px;
+  }
+
+  .modal__close {
+    width: 44px;
+    height: 44px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .modal__inner {
+    height: 100%;
+  }
+
+  .modal-close__icon {
+    margin-right: 0px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -1611,13 +1719,38 @@ strong {
     padding-right: 8px;
     padding-bottom: 8px;
   }
+
+  .about-modal {
+    padding: 24px 16px 16px;
+  }
+
+  .modal__close {
+    top: 8px;
+    right: 8px;
+  }
+
+  .modal-content {
+    overflow: scroll;
+    max-height: 70vh;
+  }
 }
 
 @media screen and (max-width: 479px) {
+  .nav-link.is--about {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  }
+
   .current-info__wrapper {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+  }
+
+  .sanle-logo {
+    width: 190px;
   }
 }
 
