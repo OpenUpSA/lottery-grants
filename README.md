@@ -2,35 +2,9 @@
 
 This repo provides data processing from source CSV files, and a website to explore Lottery grants.
 
-### MVP
+## TODO
 
-- [ ] Add hyperlinks to external stuff in tab (@Matt)
-- [ ] Figure out why chart sometimes goes too wide
-- [ ] Filter Limpopo -> UNSPECIFIED -> 2019 - stuck on loading
-- [ ] Show province in popup table
-- [ ] Update with latest webflow export: include treemap loading div. @Matt loading not showing at top after content added
 - [ ] Avoid CSS `//` comments from webflow or post-process in webflow import. @Matt ?
-- [ ] Filter panel on narrow screen does not go away when clicking outside of it @Matt ?
-- [x] Spaces not working in search. @Matt webflow spacebar event handling?
-- [x] Collapse beneficiary names (case and punctuation)
-- [x] Add project number and date to CSV export
-- [x] Reduced data size. Had grown to over 20MB with with data and fields, restructuring reduced to around 13MB.
-- [x] Remove all filters - implemented? Bug fixed.
-- [x] Year should be e.g. 2019/2020 instead of 2019.
-- [x] Add link to https://www.nlcsa.org.za/annual-reports. @Matt
-- [x] Remove 'date' from selected data table? @Matt
-- [x] Implement Netlify deployment
-- [x] Get latest data
-- [x] Do not include date for now, as we only have date for 2019-20. (old task: Include allocation date once available in data set)
-- [x] CSV download - download entire selection based on filters (remove from clicked selection)
-- [x] Benficiary CIPC info...? (leave out for now)
-- [x] Update with latest webflow export: set count and amount details to new targets
-- [x] Update with latest webflow export: change beneficiary search to show selected as pills instead of checkboxes
-- [x] Update with latest webflow export: add table to selected data overlay
-- [x] Correct handling of province filter
-
-### Later
-
 - [ ] Show all time top 10 beneficiaries by amount on website
 - [ ] Change processing of input CSV data so that Netlify deployment can generate data?
 - [ ] Figure out date types (allocation etc?) and include in popup table
