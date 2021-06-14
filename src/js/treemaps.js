@@ -21,6 +21,12 @@ const height = (window.innerHeight / 8);
 
 export class Treemaps {
   constructor($parent, data, lookups, filters, colors, overlay) {
+    $parent.on('click', (evt) => {
+      if (!(evt.target instanceof SVGRectElement)) {
+        // Prevent webflow opening overlay
+        evt.stopPropagation();
+      }
+    });
     $parent.append(`<div id="${TREEMAP_ID}" style="max-width: ${maxWidth}px; width: 100%"></div>`);
     this._data = data;
     this._filteredData = data;
