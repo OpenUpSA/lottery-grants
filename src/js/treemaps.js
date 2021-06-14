@@ -101,8 +101,17 @@ export class Treemaps {
     });
     const csvData = rows.map((row) => row.join(',')).join('\n');
     const csvBlob = new Blob([csvData], { type: 'text/csv' });
-    const csvUrl = URL.createObjectURL(csvBlob);
-    window.open(csvUrl);
+    const filename = 'data.csv';
+    if (window.navigator.msSaveOrOpenBlob) { // IE
+      window.navigator.msSaveBlob(csvBlob, filename);
+    } else { // Other
+      const ref = window.document.createElement('a');
+      ref.href = window.URL.createObjectURL(csvBlob);
+      ref.download = filename;
+      document.body.appendChild(ref);
+      ref.click();
+      document.body.removeChild(ref);
+    }
   }
 
   update(filter, values) {
