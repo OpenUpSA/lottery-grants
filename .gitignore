@@ -1,5 +1,3 @@
-/data/in/*.csv
-
 /data/out/*.json
 !data/out/lookup.json
 !data/out/year_Sector_Name-treemap.json
