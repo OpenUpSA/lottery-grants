@@ -1504,6 +1504,30 @@ strong {
   margin-bottom: 0px;
 }
 
+.about-logos {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 2em;
+  padding-top: 2em;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.about-logo {
+  width: 200px;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
 @media screen and (max-width: 991px) {
   h3 {
     font-size: 16px;
@@ -1751,6 +1775,28 @@ strong {
 
   .sanle-logo {
     width: 190px;
+  }
+
+  .about-logos {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .about-logo {
+    width: 50%;
+    min-width: 170px;
+    padding-bottom: 2em;
   }
 }
 
