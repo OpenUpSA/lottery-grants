@@ -4,6 +4,15 @@ import re
 from pathlib import Path
 import pandas as pd
 
+
+def normalize_beneficiary_name(value):
+    value = value.replace('_', ' ')
+    value = re.sub(u"(\u2018|\u2019)", '', value)
+    value = re.sub(u"(\u2013)", '-', value)
+    value = re.sub(u"(\u2013)", '-', value)
+    return value
+
+
 fields = ["Date", "Project Number", "Sector", "Province", "Name", "Amount"]
 forced_fields = set(["Sector"])
 
@@ -151,16 +160,14 @@ def process_lookup():
                 for field in out_fields:
                     value = row.setdefault(field, UNSPECIFIED).replace("\n", " ").strip()
                     if field == 'Name':
-                        # Remove chars from displayed name
-                        value = re.sub(u"(\u2018|\u2019)", '', value)
-                        value = re.sub(u"(\u2013)", '-', value)
-                        value = re.sub(u"(\u2013)", '-', value)
+                        value = normalize_beneficiary_name(value)
                         # Collapse to single lookup name
                         value_resolve = value.upper()
                         value_resolve = value_resolve.replace("'", '').replace('`', '')
                         value_resolve = value_resolve.replace(' - ', ' ')
                         value_resolve = value_resolve.replace(',', '')
                         value_resolve = value_resolve.replace(',', '')
+                        value_resolve = value_resolve.replace('_', '')
                         value = name_resolution.setdefault(value_resolve, value)
                         if value not in index_names:
                             index_names[value] = name_id
