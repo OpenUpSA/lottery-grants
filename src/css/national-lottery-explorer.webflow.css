@@ -1528,6 +1528,44 @@ strong {
   padding-left: 2em;
 }
 
+.feedback__wrapper {
+  position: fixed;
+  left: auto;
+  top: auto;
+  right: 0%;
+  bottom: 1.5em;
+}
+
+.feedback {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.8em;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #019a61;
+  -webkit-transition: padding-right 200ms ease;
+  transition: padding-right 200ms ease;
+  color: #fff;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.feedback:hover {
+  padding-right: 1.2em;
+}
+
+.paragraph {
+  margin-bottom: 0px;
+}
+
 @media screen and (max-width: 991px) {
   h3 {
     font-size: 16px;
