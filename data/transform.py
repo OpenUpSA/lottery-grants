@@ -1,6 +1,7 @@
 import csv
 import json
 import re
+import sys
 from pathlib import Path
 import pandas as pd
 
@@ -14,6 +15,7 @@ def normalize_beneficiary_name(value):
 
 
 fields = ["Date", "Project Number", "Sector", "Province", "Name", "Amount"]
+mandatory_fields = ["Name"]
 forced_fields = set(["Sector"])
 
 totals = [["name"], ["sector"], ["province"], ["year", "sector", "name"]]
@@ -110,7 +112,7 @@ sectors = {
 repo_path = Path(__file__).resolve().parents[1]
 data_path = repo_path / "data"
 in_base_path = data_path / "in"
-in_base_paths = sorted(in_base_path.glob("*[!_DIRTY].csv"))
+in_base_paths = sorted(in_base_path.glob("*[!_EXCLUDE].csv"))
 out_base_path = repo_path / "data/out"
 name_resolution_path = data_path / 'name-resolution.json'
 with name_resolution_path.open() as file:
@@ -153,8 +155,13 @@ def process_lookup():
         with in_base_path.open() as file:
             reader = csv.DictReader(file)
             out_fields = list((set(fields) & set(reader.fieldnames)).union(forced_fields))
+            missing_fields = list(set(fields) - set(out_fields))
             print(f" - matched fields: {out_fields}")
-            print(f" - missing fields: {list(set(fields) - set(out_fields))}")
+            print(f" - missing fields: {missing_fields}")
+            for mandatory_field in mandatory_fields:
+                if mandatory_field in missing_fields:
+                    print(f"Mandatory field '{mandatory_field}' missing from {in_base_path}")
+                    sys.exit(1)
             for row in reader:
                 out_obj = {"year": year}
                 for field in out_fields:

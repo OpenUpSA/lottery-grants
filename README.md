@@ -33,6 +33,7 @@ These files are taken from from [Dropbox folder](https://www.dropbox.com/sh/v51l
 TODO: Manual actions (to be fixed at source):
 
 - `NLC-2003-2004 - cleaned2.csv` - header row 'Name,Sector,Province,Amount' moved from line 180 to line 1
+- `not_in_official 2017-2018.csv` - changed '-' amount to '0' in line '2018-02-28T00:00:00Z,90138,"SITHEMBIMFUNDO CRECHE & PRE",-' and changed column 'Organisation' to 'Name'
 
 
 ### Import Webflow export

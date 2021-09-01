@@ -4,7 +4,7 @@ import pandas as pd
 OUT_COLS = ['Date', 'Project', 'Name', 'Province', 'Sector', 'Amount']
 
 SOURCE_PDF = 'source/NLDTF-Payments-2017-181.pdf'
-TARGET_CSV = 'in/NLC-2017-2018 - imported_DIRTY.csv'
+TARGET_CSV = 'in/NLC-2017-2018 - imported_EXCLUDE.csv'
 
 tables = camelot.read_pdf(SOURCE_PDF, pages='1-end')
 all = pd.concat(map(lambda table: table.df, tables))
