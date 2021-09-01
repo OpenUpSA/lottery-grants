@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { d3 } from './d3';
 import { formatAmount } from './utils';
 
+const SEARCH_LOADING_SELECTOR = '.search-loading';
 const LOADING_SELECTOR = '.vis-loading';
 const COUNT_SELECTOR = '.current-info__showing';
 const AMOUNT_SELECTOR = '.current-info__total-value';
@@ -9,6 +10,7 @@ const DOWNLOAD_ACTION_SELECTOR = '.download-selected';
 
 const TREEMAP_ID = 'treemap1';
 
+const $searchLoadingEl = $(SEARCH_LOADING_SELECTOR);
 const $loadingEl = $(LOADING_SELECTOR);
 const $count = $(COUNT_SELECTOR);
 const $amount = $(AMOUNT_SELECTOR);
@@ -121,9 +123,7 @@ export class Treemaps {
   }
 
   update(filter, values) {
-    $count.text('Loading...');
-    $amount.text('Calculating...');
-    $loadingEl.show();
+    this.setLoading(true);
     setTimeout(() => this._update(filter, values), 1);
   }
 
@@ -174,8 +174,6 @@ export class Treemaps {
             })),
         })),
     };
-    $count.text(this._grantsCount);
-    $amount.text(formatAmount(this._grantsAmount));
     this.sums = {};
     this._filteredData.children.forEach((year) => {
       this.sums[year.year] = year.children
@@ -237,7 +235,21 @@ export class Treemaps {
           .remove();
       }
     });
-    $loadingEl.hide();
+    this.setLoading(false);
+  }
+
+  setLoading(activate) {
+    if (activate) {
+      $searchLoadingEl.show();
+      $loadingEl.show();
+      $count.text('Loading...');
+      $amount.text('Calculating...');
+    } else {
+      $searchLoadingEl.hide();
+      $loadingEl.hide();
+      $count.text(this._grantsCount);
+      $amount.text(formatAmount(this._grantsAmount));
+    }
   }
 
   _clearTotals() {

@@ -8,6 +8,8 @@ import { Overlay } from './overlay';
 
 const legend = $('.legend__wrapper');
 
+$('.search-loading').show();
+
 Promise.all([
   d3.json('data/lookup.json'),
   d3.json('data/year_Sector_Name-treemap.json'),
