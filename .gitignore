@@ -5,6 +5,8 @@
 !data/out/Province-no-ids.json
 !data/out/lookup-*.json
 
+data/name-resolution-tmp.json
+
 webflow-export.zip
 
 node_modules

@@ -7,15 +7,18 @@ import pandas as pd
 
 
 def normalize_beneficiary_name(value):
-    value = value.replace('_', ' ')
+    '''Transform name to display'''
     value = re.sub(u"(\u2018|\u2019)", '', value)
     value = re.sub(u"(\u2013)", '-', value)
     value = re.sub(u"(\u2013)", '-', value)
+    value = value.replace('_', ' ')
+    value = value.replace(',', ', ')
+    value = ' '.join(value.split())
     return value
 
 
 def resolve_name(value):
-    '''Collapse to single lookup name'''
+    '''Collapse name to single lookup name'''
     value = normalize_beneficiary_name(value)
     value_resolve = value.upper()
     value_resolve = value_resolve.replace("'", '').replace('`', '')
@@ -23,6 +26,7 @@ def resolve_name(value):
     value_resolve = value_resolve.replace(',', '')
     value_resolve = value_resolve.replace(',', '')
     value_resolve = value_resolve.replace('_', '')
+    value_resolve = value_resolve.replace('AND', '&')
     return value_resolve
 
 
@@ -129,6 +133,7 @@ out_base_path = repo_path / "data/out"
 name_resolution_path = data_path / 'name-resolution.json'
 with name_resolution_path.open() as file:
     name_resolution = json.load(file)
+name_resolution_tmp_path = data_path / 'name-resolution-tmp.json'
 
 lookup = {}
 name_map = {}
@@ -200,7 +205,7 @@ def process_lookup():
                 array.append(out_obj)
                 id += 1
     lookup_names = {value: key for key, value in index_names.items()}
-    with name_resolution_path.open('w') as file:
+    with name_resolution_tmp_path.open('w') as file:
         json.dump(name_resolution, file, indent=2)
     with out_lookup_names.open("w") as file:
         json.dump(lookup_names, file, indent=2)
