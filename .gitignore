@@ -10,6 +10,8 @@ webflow-export.zip
 node_modules
 
 pythonenv
+*.pyc
 
 .cache
 dist
+temp

@@ -14,6 +14,18 @@ def normalize_beneficiary_name(value):
     return value
 
 
+def resolve_name(value):
+    '''Collapse to single lookup name'''
+    value = normalize_beneficiary_name(value)
+    value_resolve = value.upper()
+    value_resolve = value_resolve.replace("'", '').replace('`', '')
+    value_resolve = value_resolve.replace(' - ', ' ')
+    value_resolve = value_resolve.replace(',', '')
+    value_resolve = value_resolve.replace(',', '')
+    value_resolve = value_resolve.replace('_', '')
+    return value_resolve
+
+
 fields = ["Date", "Project Number", "Sector", "Province", "Name", "Amount"]
 mandatory_fields = ["Name"]
 forced_fields = set(["Sector"])
@@ -168,13 +180,7 @@ def process_lookup():
                     value = row.setdefault(field, UNSPECIFIED).replace("\n", " ").strip()
                     if field == 'Name':
                         value = normalize_beneficiary_name(value)
-                        # Collapse to single lookup name
-                        value_resolve = value.upper()
-                        value_resolve = value_resolve.replace("'", '').replace('`', '')
-                        value_resolve = value_resolve.replace(' - ', ' ')
-                        value_resolve = value_resolve.replace(',', '')
-                        value_resolve = value_resolve.replace(',', '')
-                        value_resolve = value_resolve.replace('_', '')
+                        value_resolve = resolve_name(value)
                         value = name_resolution.setdefault(value_resolve, value)
                         if value not in index_names:
                             index_names[value] = name_id
@@ -202,7 +208,7 @@ def process_lookup():
     with out_lookup_sectors.open("w") as file:
         json.dump(lookup_sectors, file, indent=2)
     with out_lookup_path.open("w") as file:
-        json.dump(lookup, file, indent=2)
+        json.dump(lookup, file, indent=2, sort_keys=True)
     with out_array_path.open("w") as file:
         json.dump(array, file, indent=2)
     with out_names_path.open("w") as file:
