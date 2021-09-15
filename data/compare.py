@@ -24,11 +24,17 @@ def compare(filepath_one, filepath_two):
     not_in_two = one_names - two_names
     in_both = one_names.intersection(two_names)
     in_both_amounts_different = {}
+    in_both_amounts_same = {}
     for name in in_both:
         one_amount = one_amounts[name]
         two_amount = two_amounts[name]
         if one_amount != two_amount:
             in_both_amounts_different[name] = {
+                filepath_one: one_amount,
+                filepath_two: two_amount
+            }
+        else:
+            in_both_amounts_same[name] = {
                 filepath_one: one_amount,
                 filepath_two: two_amount
             }
@@ -45,11 +51,13 @@ def compare(filepath_one, filepath_two):
         f'not_in_{two_ref}': len(not_in_two),
         'in_both': len(in_both),
         'in_both_but_amounts_different': len(in_both_amounts_different),
+        'in_both_but_amounts_same': len(in_both_amounts_same),
     })
     save_json(compare_dir / f'not_in_{one_ref}.json', not_in_one)
     save_json(compare_dir / f'not_in_{two_ref}.json', not_in_two)
     save_json(compare_dir / 'in_both.json', in_both)
     save_json(compare_dir / 'in_both_amounts_different.json', in_both_amounts_different)
+    save_json(compare_dir / 'in_both_amounts_same.json', in_both_amounts_same)
     print(f'\nDetails saved in {compare_dir}\n')
 
 
