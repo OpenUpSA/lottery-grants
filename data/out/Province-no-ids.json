@@ -1,43 +1,43 @@
 [
   {
     "province": "GP",
-    "amount": 6288988372.09
+    "amount": 6730097960.119999
   },
   {
     "province": "WC",
-    "amount": 2914307401.452
+    "amount": 3028016921.7819996
   },
   {
     "province": "KZN",
-    "amount": 2184115287.7
+    "amount": 2365045089.3000016
   },
   {
     "province": "LP",
-    "amount": 1698060435.650001
+    "amount": 1852044969.1500013
   },
   {
     "province": "EC",
-    "amount": 1656399340.7700005
+    "amount": 1815779726.07
   },
   {
     "province": "NW",
-    "amount": 1122214657.1999996
+    "amount": 1230356471.0799994
   },
   {
     "province": "FS",
-    "amount": 1011709795.3799996
+    "amount": 1123768851.6099997
+  },
+  {
+    "province": "MP",
+    "amount": 993906072.5799999
   },
   {
     "province": "N",
     "amount": 932125537.0
   },
   {
-    "province": "MP",
-    "amount": 874376331.8199999
-  },
-  {
     "province": "NC",
-    "amount": 732658116.43
+    "amount": 837689910.4499999
   },
   {
     "province": "UNSPECIFIED",
