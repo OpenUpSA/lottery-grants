@@ -1,3 +1,8 @@
+const FORMATTER = new Intl.NumberFormat('en', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
 export function formatAmount(value) {
-  return `R ${Math.round(Number(value)).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`;
+  return `R ${FORMATTER.format(value)}`;
 }
