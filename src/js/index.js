@@ -28,6 +28,7 @@ Promise.all([
     name: nameLookup,
     sector: sectorLookup,
     province: {
+      UNSPECIFIED: 'UNSPECIFIED',
       N: 'National',
       EC: 'Eastern Cape',
       FS: 'Free State',
