@@ -12,6 +12,7 @@ const DOWNLOAD_ACTION_SELECTOR = '.download-selected';
 
 const DATA_LIST_LOADING_SELECTOR = '.data-list__loading';
 const DATA_CONTAINER_SELECTOR = '.grant-data';
+const DATA_HEADERS_SELECTOR = '.grant-data__row_inner.w-inline-block';
 
 const TREEMAP_ID = 'treemap1';
 
@@ -77,7 +78,7 @@ export class Treemaps {
       province: {},
       sector: {},
     };
-    $('.grant-data__row_inner.w-inline-block').on('click', this.sortList.bind(this));
+    $(DATA_HEADERS_SELECTOR).on('click', this.sortList.bind(this));
     this.update();
   }
 
@@ -175,13 +176,11 @@ export class Treemaps {
   }
 
   updateListView(numberOfRows) {
+    $dataListLoadingEl.show();
     const lookups = this._lookups;
     this._numberOfRowsToDisplay = numberOfRows;
     this._flatDataSlice = this._filteredFlatData.slice(0, this._numberOfRowsToDisplay);
-
-    // TODO: remove this - only needed because container includes other things so d3 not working properly
     $(DATA_CONTAINER_SELECTOR).empty();
-
     const dataRows = d3.select(DATA_CONTAINER_SELECTOR)
       .selectAll('a')
       .data(this._flatDataSlice);
@@ -206,13 +205,12 @@ export class Treemaps {
           .append('div')
           .attr('class', 'grant-data__row-category')
           .text(lookups.sector[d.category]);
-      })
+      });
     dataRows.exit()
       .remove();
   }
 
   update(filter, values) {
-    this.setLoading(true);
     setTimeout(() => this._update(filter, values), 1);
   }
 
