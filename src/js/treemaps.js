@@ -1,3 +1,5 @@
+// TODO: This needs to be refactored
+// It was built with only a treemap in mind, but now included list view
 import $ from 'jquery';
 import { d3 } from './d3';
 import { formatAmount } from './utils';
@@ -8,12 +10,21 @@ const COUNT_SELECTOR = '.current-info__showing';
 const AMOUNT_SELECTOR = '.current-info__total-value';
 const DOWNLOAD_ACTION_SELECTOR = '.download-selected';
 
+const DATA_LIST_LOADING_SELECTOR = '.data-list__loading';
+const DATA_CONTAINER_SELECTOR = '.grant-data';
+
 const TREEMAP_ID = 'treemap1';
 
 const $searchLoadingEl = $(SEARCH_LOADING_SELECTOR);
 const $loadingEl = $(LOADING_SELECTOR);
 const $count = $(COUNT_SELECTOR);
 const $amount = $(AMOUNT_SELECTOR);
+
+const $dataListLoadingEl = $(DATA_LIST_LOADING_SELECTOR);
+
+// TODO: Maybe hide this already from Webflow side?
+const DATA_ROW_EXAMPLE_SELECTOR = '.grant-data__row.is--open-modal.w-inline-block';
+$(DATA_ROW_EXAMPLE_SELECTOR).remove();
 
 const maxWidth = Math.min(window.innerWidth > 992
   ? (window.innerWidth - 400 - 48 * 2)
@@ -32,6 +43,9 @@ export class Treemaps {
     $parent.append(`<div id="${TREEMAP_ID}" style="max-width: ${maxWidth}px; width: 100%"></div>`);
     this._data = data;
     this._filteredData = data;
+    this._filteredFlatData = [];
+    this._numberOfRowsToDisplay = null;
+    this._flatDataSlice = [];
     this._lookups = lookups;
     this._filters = filters;
     this._initialFilters = {};
@@ -122,12 +136,50 @@ export class Treemaps {
     }
   }
 
+  updateListView(numberOfRows) {
+    this._numberOfRowsToDisplay = numberOfRows;
+    const lookups = this._lookups;
+    this._flatDataSlice = this._filteredFlatData.slice(0, this._numberOfRowsToDisplay);
+
+    // TODO: remove this - only needed because container includes other things so d3 not working properly
+    $(DATA_CONTAINER_SELECTOR).empty();
+
+    const dataRows = d3.select(DATA_CONTAINER_SELECTOR)
+      .selectAll('a')
+      .data(this._flatDataSlice);
+    dataRows.enter()
+      .append('a')
+      .merge(dataRows)
+      .attr('class', 'grant-data__row is--open-modal w-inline-block')
+      .each(function (d) {
+        d3.select(this)
+          .append('div')
+          .attr('class', 'grant-data__row-beneficiary')
+          .text(lookups.name[d.beneficiaryId]);
+        d3.select(this)
+          .append('div')
+          .attr('class', 'grant-data__row-amount')
+          .text(d.amount);
+        d3.select(this)
+          .append('div')
+          .attr('class', 'grant-data__row-year')
+          .text(d.year);
+        d3.select(this)
+          .append('div')
+          .attr('class', 'grant-data__row-category')
+          .text(lookups.sector[d.sector]);
+      })
+    dataRows.exit()
+      .remove();
+  }
+
   update(filter, values) {
     this.setLoading(true);
     setTimeout(() => this._update(filter, values), 1);
   }
 
   _update(filter, values) {
+    this._filteredFlatData = [];
     this._grantsCount = 0;
     this._grantsAmount = 0;
     if (filter) {
@@ -168,6 +220,12 @@ export class Treemaps {
                         this._lookups.grant[id].province
                       ] += this._lookups.grant[id].amount;
                     });
+                    this._filteredFlatData.push({
+                      beneficiaryId: name.name,
+                      amount: name.amount,
+                      year: year.year,
+                      sector: sector.sector,
+                    });
                   }
                   return include;
                 }),
@@ -183,6 +241,14 @@ export class Treemaps {
     this._filteredData.children = this._filteredData.children
       .filter((year) => this.sums[year.year] > 0);
     const max = Object.keys(this.sums).reduce((acc, year) => Math.max(acc, this.sums[year]), 0);
+
+    this.updateListView(100);
+    $(window).scroll(() => {
+      if ($(document).height() - $(window).height() === $(window).scrollTop()) {
+        this.updateListView(this._numberOfRowsToDisplay += 100);
+      }
+    });
+
     const yearDivs = d3.select(`#${TREEMAP_ID}`)
       .selectAll('div')
       .data(this._filteredData.children);
@@ -241,11 +307,13 @@ export class Treemaps {
   setLoading(activate) {
     if (activate) {
       $searchLoadingEl.show();
+      $dataListLoadingEl.show();
       $loadingEl.show();
       $count.text('Loading...');
       $amount.text('Calculating...');
     } else {
       $searchLoadingEl.hide();
+      $dataListLoadingEl.hide();
       $loadingEl.hide();
       $count.text(this._grantsCount);
       $amount.text(formatAmount(this._grantsAmount));
