@@ -44,6 +44,7 @@ export class Treemaps {
     this._data = data;
     this._filteredData = data;
     this._filteredFlatData = [];
+    this._filteredFlatDataSortState = {};
     this._numberOfRowsToDisplay = null;
     this._flatDataSlice = [];
     this._lookups = lookups;
@@ -76,6 +77,7 @@ export class Treemaps {
       province: {},
       sector: {},
     };
+    $('.grant-data__row_inner.w-inline-block').on('click', this.sortList.bind(this));
     this.update();
   }
 
@@ -136,9 +138,45 @@ export class Treemaps {
     }
   }
 
+  sortList(evt) {
+    let headerEl;
+    const nodeType = evt.target.nodeName;
+    if (nodeType === 'DIV') {
+      headerEl = evt.target;
+    } else if (nodeType === 'A') {
+      [headerEl] = evt.target.children;
+    } else if (nodeType === 'IMG') {
+      [headerEl] = evt.target.parentElement.children;
+    } else {
+      throw Error('Could not determine which field to filter on - maybe the HTML structure changed?');
+    }
+    const field = headerEl.classList[0].split('-')[2];
+    const sortLastDirection = this._filteredFlatDataSortState[field] || -1;
+    const sortDirection = sortLastDirection * -1;
+    this._filteredFlatDataSortState[field] = sortDirection;
+    let lookupName = null;
+    if (field === 'beneficiary') {
+      lookupName = 'name';
+    } else if (field === 'category') {
+      lookupName = 'sector';
+    }
+    this._filteredFlatData.sort((a, b) => {
+      let valueA = a[field];
+      let valueB = b[field];
+      if (lookupName) {
+        valueA = this._lookups[lookupName][valueA];
+        valueB = this._lookups[lookupName][valueB];
+      }
+      if (valueA < valueB) return sortDirection;
+      if (valueA > valueB) return sortDirection * -1;
+      return 0;
+    });
+    this.updateListView(this._numberOfRowsToDisplay);
+  }
+
   updateListView(numberOfRows) {
-    this._numberOfRowsToDisplay = numberOfRows;
     const lookups = this._lookups;
+    this._numberOfRowsToDisplay = numberOfRows;
     this._flatDataSlice = this._filteredFlatData.slice(0, this._numberOfRowsToDisplay);
 
     // TODO: remove this - only needed because container includes other things so d3 not working properly
@@ -155,7 +193,7 @@ export class Treemaps {
         d3.select(this)
           .append('div')
           .attr('class', 'grant-data__row-beneficiary')
-          .text(lookups.name[d.beneficiaryId]);
+          .text(lookups.name[d.beneficiary]);
         d3.select(this)
           .append('div')
           .attr('class', 'grant-data__row-amount')
@@ -167,7 +205,7 @@ export class Treemaps {
         d3.select(this)
           .append('div')
           .attr('class', 'grant-data__row-category')
-          .text(lookups.sector[d.sector]);
+          .text(lookups.sector[d.category]);
       })
     dataRows.exit()
       .remove();
@@ -221,10 +259,10 @@ export class Treemaps {
                       ] += this._lookups.grant[id].amount;
                     });
                     this._filteredFlatData.push({
-                      beneficiaryId: name.name,
+                      beneficiary: name.name,
                       amount: name.amount,
                       year: year.year,
-                      sector: sector.sector,
+                      category: sector.sector,
                     });
                   }
                   return include;
