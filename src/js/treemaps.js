@@ -172,6 +172,13 @@ export class Treemaps {
       if (valueA > valueB) return sortDirection * -1;
       return 0;
     });
+    const $headerContainerEl = $(headerEl.parentElement);
+    const $arrow = $headerContainerEl.find('.sort-arrow');
+    $headerContainerEl.parent().children().each(function () {
+      $(this).find('.sort-arrow').first().removeClass('is--selected');
+    });
+    $arrow.addClass('is--selected');
+    $arrow.css('transform', `rotate(${90 * (1 - sortDirection)}deg)`);
     this.updateListView(this._numberOfRowsToDisplay);
   }
 
