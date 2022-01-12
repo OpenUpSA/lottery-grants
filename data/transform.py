@@ -1,3 +1,4 @@
+"Generate data summmaries from cleaned data per year at in/*.csv"
 import csv
 import json
 import re
@@ -285,4 +286,4 @@ def process_totals(data):
 
 
 process_lookup()
-in_files = process_totals(lookup)
+process_totals(lookup)

@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  --><!--  Last Published: Tue Dec 07 2021 11:21:35 GMT+0000 (Coordinated Universal Time)  --><html data-wf-page="6082676d1544f5777b6952ca" data-wf-site="5fc6268c09814d78a22b20ed"><head>
+<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  --><!--  Last Published: Tue Jan 11 2022 07:38:25 GMT+0000 (Coordinated Universal Time)  --><html data-wf-page="6082676d1544f5777b6952ca" data-wf-site="5fc6268c09814d78a22b20ed"><head>
   <meta charset="utf-8">
   <title>South African National Lottery Tool</title>
   <meta content="This Lottery tool was built by OpenUp, a Cape Town based civic tech organisation, to help make information about Lottery grants more transparent and keyword searchable. All the information inthe tool is from publicly available NLC annual reports." name="description">
@@ -122,11 +122,70 @@
                   <div data-w-id="ef7452fd-6a95-a9ae-5f8a-2ec9a32549fa" class="useful-modal__close"><img src="images/close-icon.svg" loading="lazy" width="24" height="24" alt="" class="modal-close__icon"></div>
                   <div class="modal__inner">
                     <h2 class="heading heading--mb heading--underline">NLC&nbsp;Annual Reports</h2>
-                    <p class="modal-content">Links to page where you can download NLC annual reports and other strategic performance documents.<br></p>
-                    <div class="modal-buttons">
-                      <a href="https://www.nlcsa.org.za/annual-reports/" target="_blank" class="button is--green w-inline-block">
-                        <p class="button-text">Proceed to website</p>
-                      </a>
+                    <div class="modal-content">
+                      <p>These annual reports were downloaded directly from the <a href="https://www.nlcsa.org.za/" target="_blank">NLC's&nbsp;website</a> and are being stored to ensure they are not able to be taken offline or made inaccessible to South Africans. <strong>Select a year to download the corresponding NLC&nbsp;Annual Report:</strong><br></p>
+                      <div class="report-years__wrapper">
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2000</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2001</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2002</p>
+                        </a>
+                        <a href="#" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2003</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2004</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2005</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2006</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2007</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2008</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2009</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2010</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2011</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2012</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2013</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2014</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2015</p>
+                        </a>
+                        <a href="#" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2016</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2017</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2018</p>
+                        </a>
+                        <a href="#" target="_blank" class="button is--report-year w-inline-block">
+                          <p class="button-text is--dark">2019</p>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -337,7 +396,7 @@
                   <div class="expand-block__content_inner">
                     <div class="content__scroll">
                       <div id="province-list" class="checkbox-list w-form">
-                        <form id="wf-form-Province-list" name="wf-form-Province-list" data-name="Province list">
+                        <form id="wf-form-Province-list" name="wf-form-Province-list" data-name="Province list" method="get">
                           <div class="filter-loading"><img src="images/loading.gif" width="10" alt="" class="filter-loading__icon">
                             <div class="filter-loading__label">Loading...</div>
                           </div><label class="w-checkbox filter-checkbox hidden">
@@ -364,7 +423,7 @@
                   <div class="expand-block__content_inner">
                     <div class="content__scroll">
                       <div id="grant-categories-list" class="checkbox-list w-form">
-                        <form id="wf-form-Grant-categories-list" name="wf-form-Grant-categories-list" data-name="Grant categories list" class="form">
+                        <form id="wf-form-Grant-categories-list" name="wf-form-Grant-categories-list" data-name="Grant categories list" method="get" class="form">
                           <div class="filter-loading"><img src="images/loading.gif" width="10" alt="" class="filter-loading__icon">
                             <div class="filter-loading__label">Loading...</div>
                           </div><label class="w-checkbox filter-checkbox hidden">
@@ -391,7 +450,7 @@
                   <div class="expand-block__content_inner">
                     <div class="content__scroll">
                       <div id="year-list" class="checkbox-list w-form">
-                        <form id="wf-form-Year-list" name="wf-form-Year-list" data-name="Year list">
+                        <form id="wf-form-Year-list" name="wf-form-Year-list" data-name="Year list" method="get">
                           <div class="filter-loading"><img src="images/loading.gif" width="10" alt="" class="filter-loading__icon">
                             <div class="filter-loading__label">Loading...</div>
                           </div><label class="w-checkbox filter-checkbox hidden">
@@ -471,11 +530,11 @@
 </style>
   <style>
 .filter-panel__inner {
-    -ms-overflow-style: none;  
-    overflow: -moz-scrollbars-none;  
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
 }
 .filter-panel__inner::-webkit-scrollbar {
-    display: none; 
+    display: none;
 }
 </style>
   <script>

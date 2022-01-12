@@ -728,6 +728,12 @@ strong {
   background-color: #019a61;
 }
 
+.button.is--report-year {
+  min-width: 5.8em;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
 .current-info__selected {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1535,6 +1541,7 @@ strong {
 }
 
 .modal-content {
+  overflow: auto;
   margin-top: 16px;
   margin-bottom: 0px;
 }
@@ -1725,6 +1732,10 @@ strong {
 .button-text {
   margin-bottom: 0px;
   color: #fff;
+}
+
+.button-text.is--dark {
+  color: #333;
 }
 
 .useful-modal__close {
@@ -2028,6 +2039,21 @@ strong {
   font-weight: 500;
 }
 
+.report-years__wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 1.5em;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
 @media screen and (max-width: 991px) {
   h3 {
     font-size: 16px;
@@ -2234,6 +2260,11 @@ strong {
     display: none;
   }
 
+  .button.is--report-year {
+    width: 100%;
+    margin-right: 0px;
+  }
+
   .current-info__selected {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -2286,7 +2317,6 @@ strong {
   }
 
   .modal-content {
-    overflow: scroll;
     max-height: 70vh;
   }
 
@@ -2345,6 +2375,12 @@ strong {
     -webkit-flex: 0 0 auto;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
+  }
+
+  .button.is--report-year {
+    width: 100%;
+    min-width: auto;
+    margin-right: 0px;
   }
 
   .current-info__wrapper {

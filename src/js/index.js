@@ -5,6 +5,7 @@ import { FilterSearchSelect } from './filter-search-select';
 import { Search } from './search';
 import { Treemaps } from './treemaps';
 import { Overlay } from './overlay';
+import { AnnualReports } from './annual-reports';
 
 const legend = $('.legend__wrapper');
 
@@ -16,13 +17,16 @@ Promise.all([
   d3.json('data/lookup-names.json'),
   d3.json('data/lookup-sectors.json'),
   d3.json('data/Province-no-ids.json'),
+  d3.json('data/annual-report-filenames.json'),
 ]).then(([
   lookup,
   data,
   nameLookup,
   sectorLookup,
   provinceSummary,
+  annualReports,
 ]) => {
+  new AnnualReports(annualReports);
   const lookups = {
     grant: lookup,
     name: nameLookup,

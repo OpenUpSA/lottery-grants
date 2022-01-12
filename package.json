@@ -15,6 +15,10 @@
       {
         "staticPath": "data/out",
         "staticOutDir": "data"
+      },
+      {
+        "staticPath": "data/annual-reports",
+        "staticOutDir": "data/annual-reports"
       }
     ]
   },
