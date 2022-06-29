@@ -25,7 +25,7 @@ To generate data for the website, save CSV files to `/data/in/*{year}*.csv`, for
 
 ```bash
 cd data
-python3 transform.py
+python transform.py
 ```
 
 These files are taken from from [Dropbox folder](https://www.dropbox.com/sh/v51lkxz82szx2dq/AAC7pdcLNGL9QonGhlqVlO5Ua/lottery). For files ending with a counter, e.g. `NLC-2003-2004 - cleaned2.csv`, take the latest one.
@@ -53,7 +53,7 @@ Building of changes from `data/in` is including in the Netlify build, so this ne
 ```bash
 cd data
 . activate.sh
-python3 transform.py
+python transform.py
 ```
 
 This process should of course be improved once the data processing is finalised.

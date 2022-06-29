@@ -1,2 +1,2 @@
-python3 transform.py
-python3 generate_annual_report_filenames.py
+python transform.py
+python generate_annual_report_filenames.py

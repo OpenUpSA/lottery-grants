@@ -12,7 +12,7 @@ webflow-export.zip
 
 node_modules
 
-pythonenv
+.pythonenv
 *.pyc
 
 .cache
