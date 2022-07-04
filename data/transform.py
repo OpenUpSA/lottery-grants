@@ -71,6 +71,7 @@ provinces = {
     "KwaZulu Natal": "kzn",
     "KWAZULU NATAL": "kzn",
     "KWA-ZULU NATAL": "kzn",
+    "kZN": "kzn",
     "LP": "limpopo",
     "LIMPOPO": "limpopo",
     "Limpopo": "limpopo",
