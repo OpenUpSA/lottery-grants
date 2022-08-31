@@ -24,3 +24,5 @@ temp
 
 cypress/videos
 cypress/screenshots
+
+.parcel-cache/

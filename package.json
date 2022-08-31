@@ -1,26 +1,19 @@
 {
   "name": "lottery-grants",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Lottery grants explorer tool",
-  "main": "index.js",
   "scripts": {
+    "copy-data-files": "mkdir -p dist/data && cp data/out/* dist/data/",
+    "copy-annual-reports-files": "mkdir -p data/annual-reports && cp data/annual-reports/* dist/data/annual-reports",
+    "predev": "npm run copy-data-files",
+    "prepredev": "npm run copy-annual-reports-files",
     "dev": "parcel src/index.html",
     "build": "parcel build src/index.html",
+    "postbuild": "npm run copy-data-files",
+    "postpostbuild": "npm run copy-annual-reports-files",
     "webflow-import": "npx import-webflow webflow-export.zip",
     "lint": "eslint src/js/ --ext js",
     "test": "cypress run"
-  },
-  "staticFiles": {
-    "staticPath": [
-      {
-        "staticPath": "data/out",
-        "staticOutDir": "data"
-      },
-      {
-        "staticPath": "data/annual-reports",
-        "staticOutDir": "data/annual-reports"
-      }
-    ]
   },
   "importWebflowExport": {
     "copyTrees": {
@@ -39,22 +32,21 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.12.13",
+    "@babel/core": "^7.18.13",
     "babel-plugin-transform-regenerator": "^6.26.0",
-    "eslint": "^7.19.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "import-webflow-export": "0.0.4",
-    "parcel-bundler": "^1.12.4",
-    "parcel-plugin-static-files-copy": "^2.5.1",
-    "cypress": "^10.7.0"
+    "cypress": "^10.7.0",
+    "eslint": "^8.23.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "import-webflow-export": "0.0.5",
+    "parcel": "^2.7.0"
   },
   "dependencies": {
-    "d3": "^6.5.0",
-    "d3-fetch": "^2.0.0",
-    "d3-hierarchy": "^2.0.0",
-    "d3-selection": "^2.0.0",
-    "jquery": "^3.5.1",
-    "js-worker-search": "^1.4.1"
+    "d3": "^7.6.1",
+    "d3-fetch": "^3.0.1",
+    "d3-hierarchy": "^3.1.2",
+    "d3-selection": "^3.0.0",
+    "jquery": "^3.6.1",
+    "js-worker-search": "github:ranihorev/js-worker-search"
   }
 }
