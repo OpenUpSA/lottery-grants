@@ -8,7 +8,7 @@
     "build": "parcel build src/index.html",
     "webflow-import": "npx import-webflow webflow-export.zip",
     "lint": "eslint src/js/ --ext js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress run"
   },
   "staticFiles": {
     "staticPath": [
@@ -46,7 +46,8 @@
     "eslint-plugin-import": "^2.22.1",
     "import-webflow-export": "0.0.4",
     "parcel-bundler": "^1.12.4",
-    "parcel-plugin-static-files-copy": "^2.5.1"
+    "parcel-plugin-static-files-copy": "^2.5.1",
+    "cypress": "^10.7.0"
   },
   "dependencies": {
     "d3": "^6.5.0",
