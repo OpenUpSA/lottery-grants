@@ -26,3 +26,5 @@ cypress/videos
 cypress/screenshots
 
 .parcel-cache/
+# Local Netlify folder
+.netlify
