@@ -126,6 +126,7 @@ sectors = {
     "SPORT AND RECREATION CATEGORY": "sports",
     "SPORT AND RECREATION": "sports",
     "SPORTS & RECREATION": "sports",
+    "Sports and recreation": "sports"
 }
 
 repo_path = Path(__file__).resolve().parents[1]
