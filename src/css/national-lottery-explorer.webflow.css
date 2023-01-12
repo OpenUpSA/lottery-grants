@@ -1095,7 +1095,7 @@ strong {
   left: -96px;
   top: auto;
   right: 100%;
-  bottom: 70px;
+  bottom: 30px;
   display: none;
   height: 44px;
   -webkit-box-pack: center;
@@ -2157,7 +2157,7 @@ strong {
     left: -44px;
     top: auto;
     right: auto;
-    bottom: 70px;
+    bottom: 30px;
     width: 44px;
     height: 44px;
     -webkit-box-pack: center;
@@ -2413,6 +2413,10 @@ strong {
     width: 50%;
     min-width: 170px;
     padding-bottom: 2em;
+  }
+
+  .feedback {
+    display: none;
   }
 
   .grant-data__row {
