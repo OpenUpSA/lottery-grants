@@ -45,6 +45,7 @@
     "d3-hierarchy": "^3.1.2",
     "d3-selection": "^3.0.0",
     "jquery": "^3.6.1",
-    "js-worker-search": "github:ranihorev/js-worker-search"
+    "js-worker-search": "github:ranihorev/js-worker-search",
+    "lightningcss": "^1.18.0"
   }
 }
