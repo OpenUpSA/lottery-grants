@@ -114,6 +114,7 @@ sectors = {
     "CHARITIES CATEGORY": "charities",
     "MISC": "miscellaneous",
     "Misc": "miscellaneous",
+    "Miscellaneous": "miscellaneous",
     "Miscellaneous Purposes": "miscellaneous",
     "MISCELLANEOUS PURPOSES": "miscellaneous",
     "MISCELLANEOUS": "miscellaneous",
