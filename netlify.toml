@@ -3,6 +3,11 @@
 publish = "dist/"
 command = "npm run build"
 
+[build.environment]
+  NODE_VERSION = "22"
+  # Build/lint never run Cypress; skip the ~100MB binary download on install
+  CYPRESS_INSTALL_BINARY = "0"
+
 # Deployment from production branch commits
 # [context.production]
 
